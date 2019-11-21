@@ -1,0 +1,14 @@
+ 1 $
+ 2 HELLO WORLD!$
+ 3 This is a test file.$
+ 4 $
+ 5 Empty line above and below me.$
+ 6 $
+ 7 tab^Ispace^Ibetween^Ieach^Iword.$
+ 8 HELLO WORLD!$
+ 9 This is a test file.$
+10 $
+11 Empty line above and below me.$
+12 $
+13 tab^Ispace^Ibetween^Ieach^Iword.$
+14 $
