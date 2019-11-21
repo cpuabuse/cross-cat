@@ -4,7 +4,9 @@ const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const emptyString = "";
 function getExtendedCharacters(){
     let array = new Array();
-    for(i = 127;i < 161; i++){
+    
+    // Testing the 2 first characters
+    for(i = 128;i < 130; i++){
         array.push(String.fromCharCode(i));
     }
     return array.join(emptyString);

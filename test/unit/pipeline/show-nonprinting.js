@@ -57,21 +57,15 @@ function testShowNonPrinting() {
         describe("extendedCharacters",function(){
             // Value
             it("should have expected amount of characters", function(){
-                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.getExtendedCharacters()), expected.getExtendedCharacters())
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.getExtendedCharacters()), expected.extendedCharacters)
             })
 
         } );
 	});
 
-	// 	tests for 0 - 32
-	// 		// Tests for special characters.
-	// 		verify input array lenght
-	// 		// Tests for numbers.
-	// 		verify input array lenght
-	// 		// Tests for letters.
-	// 		verify input array lenght
-
-    // test for 127 - 160
+    // test for 127
+    
+    // test for 128 - 160
 
 	// 	Tests for 160 - 255
 	// 	// Tests for other special characters.
