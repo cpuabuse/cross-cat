@@ -1,14 +1,14 @@
-// All of the special characters
-const specialCharacters = "!\"#$%&'()*+,-./:;>=<?@[\\]^_`{|}~";
+// Carriage return
+const carriageReturnCharacter = "\r";
 
-// Maximum special character minus first 32 characters, 10 numbers, 26 uppercase letters, 26 lowercase letters, and a space.
-const specialCharactersCount = 127 - 32 - 10 - 26 - 26 - 1;
+// DEL
+const del = "^?"
 
-// Total amount of numbers
-const numbersCount = 10;
+// Literal empty string
+const emptyString = "";
 
-// Literal numbers 
-const numbers = "0123456789";
+// Manually calculated the result (for 128 to 160)
+const extendedCharacters = "M-^@M-^A"
 
 // All of the letters
 const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -16,11 +16,29 @@ const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 // Total anount of letters twice
 const lettersCount = 52;
 
-// Literal empty string
-const emptyString = "";
+// New line or line feed
+const lineFeedCharacter = "\n";
 
-// Manually calculated the result
-const extendedCharacters = "M-^@M-^A"
+// Literal numbers 
+const numbers = "0123456789";
+
+// Total amount of numbers
+const numbersCount = 10;
+
+// Literal space
+const space = " "
+
+// All of the special characters from 128 to 160
+const specialCharacters = "!\"#$%&'()*+,-./:;>=<?@[\\]^_`{|}~";
+
+// Maximum special character minus first 32 characters, 10 numbers, 26 uppercase letters, 26 lowercase letters, and a space.
+const specialCharactersCount = 127 - 32 - 10 - 26 - 26 - 1;
+
+// Tab
+const tabCharacter = "\t";
+
+// Above 255
+const unicodeCharacter = "M-^?M-^?M-^?M-^?M-^?M-^?M-^?";
 
 module.exports = {
 	specialCharacters,
@@ -29,5 +47,11 @@ module.exports = {
 	numbersCount,
 	letters,
     lettersCount,
-    extendedCharacters
+    extendedCharacters,
+    space,
+    unicodeCharacter,
+    lineFeedCharacter,
+    carriageReturnCharacter,
+    tabCharacter, 
+    del
 };

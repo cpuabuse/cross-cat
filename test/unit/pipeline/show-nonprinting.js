@@ -9,25 +9,56 @@ const expected = require("../../../test/expected/pipeline.js");
 const showNonPrinting = require("../../../src/pipeline/show-nonprinting.js");
 
 function testShowNonPrinting() {
-	describe("non-printing", function() {
-		describe("specialCharacters", function() {
-			// String length
-			it("should have expected amount of characters", function() {
-				assert.strictEqual(
-					inputData.specialCharacters.length,
-					expected.specialCharactersCount
-				);
-			});
+    describe("non-printing", function() {
+        
+        // Tab character
+        describe("tab character", function(){
+            it("should have expected value", function(){
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.tabCharacter), expected.tabCharacter)
+            });
+        });
+        
+        // Line feed character
+        describe("line feed character", function(){
+            it("should have expected value", function(){
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.lineFeedCharacter), expected.lineFeedCharacter)
+            });
+        });
+        
+        // Carriage return character
+        describe("carriage return character", function(){
+            it("should have expected value", function(){
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.carriageReturnCharacter), expected.carriageReturnCharacter)
+            });
+        });
 
-			// Value
-			it("should have expected value", function() {
-				assert.strictEqual(
-					showNonPrinting.showNonPrinting(inputData.specialCharacters),
+        // Space character
+        describe("space chatacter", function(){
+            it("should have expected value",function(){
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.space),expected.space)
+            });
+        });   
+        
+        // Special characters between 33 and 126
+		describe("specialCharacters", function() {
+            // String length
+			it("should have expected amount of characters", function() {
+                assert.strictEqual(
+                    inputData.specialCharacters.length,
+					expected.specialCharactersCount
+                    );
+                });
+                
+                // Value
+                it("should have expected value", function() {
+                    assert.strictEqual(
+                        showNonPrinting.showNonPrinting(inputData.specialCharacters),
 					expected.specialCharacters
 				);
 			});
 		});
 
+        // Numbers
 		describe("numbers", function(){
 			// String length
 			it("should have expected amount of numbers", function(){
@@ -42,6 +73,7 @@ function testShowNonPrinting() {
 			});
 		});
 
+        // Letters
 		describe("letters", function(){
 			// String length
 			it("should have expected amount of letters", function(){
@@ -54,31 +86,44 @@ function testShowNonPrinting() {
 			});
         });
         
+        // Del
+        describe("DEL character", function(){
+            it("should have expected value",function(){
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.del),expected.del)
+            });
+        });
+
+
+
+        // Extended characters from 128 to 160
         describe("extendedCharacters",function(){
-            // Value
             it("should have expected amount of characters", function(){
                 assert.strictEqual(showNonPrinting.showNonPrinting(inputData.getExtendedCharacters()), expected.extendedCharacters)
-            })
+            });
+        });
 
-        } );
+        // Unicode characters above 255
+	    describe("unicode characters", function(){
+		    it("should have expected values", function(){
+			    assert.strictEqual(showNonPrinting.showNonPrinting(inputData.unicodeCharacter), expected.unicodeCharacter)
+		    });
+        });
+
+        
+        
+        
 	});
 
     // test for 127
     
-    // test for 128 - 160
+    
 
 	// 	Tests for 160 - 255
 	// 	// Tests for other special characters.
 
 	// 	// Tests for characters above 255.
 
-	// 	tests for tabs
-
-	// 	test for nEwline
-
-	// 	tests fpr carriage return
-
-	// 	tests for spaces
+	
 }
 
 testShowNonPrinting();
