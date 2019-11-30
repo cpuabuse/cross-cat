@@ -93,8 +93,6 @@ function testShowNonPrinting() {
             });
         });
 
-
-
         // Extended characters from 128 to 160
         describe("extendedCharacters",function(){
             it("should have expected amount of characters", function(){
@@ -116,21 +114,6 @@ function testShowNonPrinting() {
 		    });
         });
 	});
-
-   
-    
-    
-
-	// 	Tests for 160 - 255
-	// 	// Tests for other special characters.
-
-	
-
-	
 }
 
 testShowNonPrinting();
-
-// module.exports = {
-// 	testNonPrinting
-// }
