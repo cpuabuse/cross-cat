@@ -3,7 +3,7 @@ const del = "^?"
 const emptyString = "";
 
 // Extended characters from 128 to 160
-function getExtendedCharacters(){
+function getExtendedLower(){
     let array = new Array();
     
     // Testing the 2 first characters
@@ -27,16 +27,20 @@ const tabCharacter = "\t";
 // Above 255
 const unicodeCharacter = "ハローワールド";
 
+// Characters between 160 and 255; but tested manually from 170 to 172
+const extendedHigher = "ª«¬"
+
 module.exports = {
 	specialCharacters,
 	numbers,
     letters,
-    getExtendedCharacters,
+    getExtendedLower,
     emptyString,
     space,
     unicodeCharacter,
     tabCharacter,
-    lineFeedCharacter, 
+    lineFeedCharacter,
     carriageReturnCharacter,
-    del
+    del,
+    extendedHigher
 };

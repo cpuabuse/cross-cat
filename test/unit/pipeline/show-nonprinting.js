@@ -98,7 +98,14 @@ function testShowNonPrinting() {
         // Extended characters from 128 to 160
         describe("extendedCharacters",function(){
             it("should have expected amount of characters", function(){
-                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.getExtendedCharacters()), expected.extendedCharacters)
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.getExtendedLower()), expected.extendedCharacters)
+            });
+        });
+
+        // Extended characters from 160 to 255
+        describe("othersExtendedCharacters",function(){
+            it("should have expected amount of characters", function(){
+                assert.strictEqual(showNonPrinting.showNonPrinting(inputData.extendedHigher), expected.extendedHigher)
             });
         });
 
@@ -108,20 +115,16 @@ function testShowNonPrinting() {
 			    assert.strictEqual(showNonPrinting.showNonPrinting(inputData.unicodeCharacter), expected.unicodeCharacter)
 		    });
         });
-
-        
-        
-        
 	});
 
-    // test for 127
+   
     
     
 
 	// 	Tests for 160 - 255
 	// 	// Tests for other special characters.
 
-	// 	// Tests for characters above 255.
+	
 
 	
 }
