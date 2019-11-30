@@ -33,30 +33,31 @@ Examples:
     cat        Copy standard input to standard output.
 `;
 
-// TODO: Implement limit for maxFile size, give handle to user. Implement overflow protection during reading buffer and assigning to string.
-/* 
-	A function performing file processing, mocking behavoir of linux cat function.
+/**
+ * Interface to store flags.
  */
+interface Flags {
+	helpFlag: boolean;
+	showTabsFlag: boolean;
+	showAllFlag: boolean;
+	numberNonBlankFlag: boolean; // "-b"
+	showEndsFlag: boolean;
+	numberFlag: boolean;
+	squeezeBlankFlag: boolean;
+	versionFlag: boolean;
+	showNonprintingFlag: boolean;
+}
 
-function cat(filename) {
-	// FLAGS
-	var helpFlag = false;
-	var showTabsFlag = true;
-	var showAllFlag = false;
-	var numberNonBlankFlag = true; // "-b"
-	var showEndsFlag = true;
-	var numberFlag = true;
-	var squeezeBlankFlag = false;
-	var versionFlag = false;
-	var showNonprintingFlag = false;
-
-	testFile = __dirname + "/test/data/test.txt";
-
+/**
+ * A function performing file processing, mocking behavoir of linux cat function.
+ * @param filename File name
+ */
+function cat(filename: string, flags: Flags): void {
 	// Processing help flag
-	if (helpFlag) {
-		console.log(helpText);
+	if (flags.helpFlag) {
+		log(helpText);
 	} else {
-		readFile(testFile, function(err, data) {
+		readFile(filename, function(err, data) {
 			if (err) {
 				console.error(err);
 			} else {
@@ -107,6 +108,15 @@ function cat(filename) {
 			}
 		});
 	}
+}
+
+/**
+ * Prints a text.
+ * @param text Text to print.
+ */
+function log(text: string): void {
+	// eslint-disable-next-line no-console
+	console.log(text);
 }
 
 cat(arguments);

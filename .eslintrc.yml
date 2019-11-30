@@ -53,6 +53,10 @@ rules:
   # Always.
   no-plusplus: off
 
+  # Disallow Early Use.
+  # No necessity.
+  no-use-before-define: off
+
   # Suggest using const.
   # Let programmer decide.
   prefer-const: off
