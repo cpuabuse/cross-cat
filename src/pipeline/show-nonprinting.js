@@ -5,8 +5,8 @@
 */
 
 /**
- * Shows non-printing characters
- * Code converted from [coreutils repository](https://github.com/coreutils/coreutils/blob/master/src/cat.c)
+ * Shows non-printing characters.
+ * Code converted from [coreutils repository](https://github.com/coreutils/coreutils/blob/master/src/cat.c).
  */
 
 const emptyString = "";

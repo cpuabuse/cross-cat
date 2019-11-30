@@ -4,7 +4,7 @@
 */
 
 /**
- * supress repeated empty output lines
+ * supress repeated empty output lines.
  */
 
 const emptyString = "";

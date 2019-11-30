@@ -4,7 +4,7 @@
 */
 
 /**
- * Adds numbers to the begining of the line
+ * Adds numbers to the begining of the line.
  */
 
 function processNumber(text) {

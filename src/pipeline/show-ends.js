@@ -4,7 +4,7 @@
 */
 
 /**
- * Put $ at the end of each line
+ * Put $ at the end of each line.
  */
 
 function processEnds(text) {

@@ -1,0 +1,66 @@
+env:
+  es6: true
+  node: true
+parser: "@typescript-eslint/parser"
+plugins:
+  - "@typescript-eslint"
+  - prettier
+extends:
+  - airbnb
+  - prettier
+parserOptions:
+  ecmaVersion: 2019
+  sourceType: module
+  ecmaFeatures:
+    impliedStrict: true
+rules:
+  prettier/prettier: error
+
+  # Enforce consistent indentation.
+  # Managed by prettier.
+  indent: off
+
+  # When there is only a single export from a module, prefer using default export over named export.
+  # To have persistent imports there is no need for arbitrary default imports as modules will grow.
+  import/prefer-default-export: off
+
+  # Require or disallow named function expressions.
+  # Too many anonymous functions to manage.
+  func-names: off
+
+  # Disallow Array constructors.
+  # Let programmer decide.
+  no-array-constructor: off
+
+  # The use of bitwise operators in JavaScript is very rare and often & or | is simply a mistyped && or ||, which will lead to unexpected behavior.
+  # Bitwise is essential.
+  no-bitwise: off
+
+  # Disallow Object constructors.
+  # Let programmer decide.
+  no-new-object: off
+
+  # Disallow Magic Numbers.
+  # We should use consts.
+  no-magic-numbers: 
+    - error
+    - ignore:
+      - 0
+      - 1
+      - -1
+
+  # Disallow the unary operators ++ and --.
+  # Always.
+  no-plusplus: off
+
+  # Suggest using const.
+  # Let programmer decide.
+  prefer-const: off
+
+  # Require object keys to be sorted.
+  # Sort everything.
+  sort-keys: 2
+
+  # Variable Sorting.
+  # Sort everything
+  sort-vars: 2

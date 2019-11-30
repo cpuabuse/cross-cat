@@ -4,7 +4,7 @@
 */
 
 /**
- * Replace TAB characters description
+ * Replace TAB characters description.
  */
 
 function processTabs(text) {

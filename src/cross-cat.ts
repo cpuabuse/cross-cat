@@ -1,4 +1,13 @@
-const fs = require("fs");
+/*
+	File: src/cross-cat.ts
+	cpuabuse.com
+*/
+
+/**
+ * Entry point for the project.
+ */
+
+import { readFile } from "fs";
 
 const helpText = `
 Usage: cat [OPTION]... [FILE]...
@@ -47,7 +56,7 @@ function cat(filename) {
 	if (helpFlag) {
 		console.log(helpText);
 	} else {
-		fs.readFile(testFile, function(err, data) {
+		readFile(testFile, function(err, data) {
 			if (err) {
 				console.error(err);
 			} else {
