@@ -8,6 +8,11 @@
  */
 
 import { readFile } from "fs";
+import { processSqueezeBlank } from "./pipeline/squeeze-blank";
+import { processTabs } from "./pipeline/show-tabs";
+import { processNumberNonBlank } from "./pipeline/number-nonblank";
+import { processEnds } from "./pipeline/show-ends.js";
+import { processNumber } from "./pipeline/number.js";
 
 const helpText = `
 Usage: cat [OPTION]... [FILE]...
@@ -59,52 +64,40 @@ function cat(filename: string, flags: Flags): void {
 	} else {
 		readFile(filename, function(err, data) {
 			if (err) {
-				console.error(err);
+				error(err);
 			} else {
-				fileData = data.toString();
+				let fileData = data.toString();
 
 				// Process squeeze blank lines
-				if (squeezeBlankFlag) {
-					fileData = require("./src/pipeline/squeeze-blank.js").processSqueezeBlank(
-						fileData
-					);
+				if (flags.squeezeBlankFlag) {
+					fileData = processSqueezeBlank(fileData);
 				}
 
 				// Processing to show tabs
-				if (showTabsFlag) {
-					fileData = require("./src/pipeline/show-tabs.js").processTabs(
-						fileData
-					);
+				if (flags.showTabsFlag) {
+					fileData = processTabs(fileData);
 				}
 
 				// Processing to show line numbers
-				if (numberNonBlankFlag) {
-					fileData = require("./src/pipeline/number-nonblank.js").processNumberNonBlank(
-						fileData
-					);
+				if (flags.numberNonBlankFlag) {
+					fileData = processNumberNonBlank(fileData);
 
 					// Processing to show line endings
-					if (showEndsFlag) {
-						fileData = require("./src/pipeline/show-ends.js").processEnds(
-							fileData
-						);
+					if (flags.showEndsFlag) {
+						fileData = processEnds(fileData);
 					}
 				} else {
 					// Processing to show line endings
-					if (showEndsFlag) {
-						fileData = require("./src/pipeline/show-ends.js").processEnds(
-							fileData
-						);
+					if (flags.showEndsFlag) {
+						fileData = processEnds(fileData);
 					}
 
-					if (numberFlag) {
-						fileData = require("./src/pipeline/number.js").processNumber(
-							fileData
-						);
+					if (flags.numberFlag) {
+						fileData = processNumber(fileData);
 					}
 				}
 				// Print result to the console
-				console.log(fileData);
+				log(fileData);
 			}
 		});
 	}
@@ -117,6 +110,12 @@ function cat(filename: string, flags: Flags): void {
 function log(text: string): void {
 	// eslint-disable-next-line no-console
 	console.log(text);
+}
+
+function error(text: string): void {
+    let text = "Error. Something wrong!"
+	// eslint-disable-next-line no-console
+	console.error("text");
 }
 
 cat(arguments);
