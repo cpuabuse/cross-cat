@@ -23,8 +23,11 @@
   },
   "homepage": "https://github.com/cpuabuse/node-cross-cat#readme",
   "dependencies": {
-    "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.14",
+    "commander": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@typescript-eslint/parser": "^2.9.0",
     "eslint": "^6.7.1",
@@ -36,6 +39,6 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
     "prettier": "^1.19.1",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.3"
   }
 }

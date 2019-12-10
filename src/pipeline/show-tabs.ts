@@ -1,5 +1,5 @@
 /*
-	File: src/pipeline/show-tabs.js
+	File: src/pipeline/show-tabs.ts
 	cpuabuse.com
 */
 
@@ -7,10 +7,6 @@
  * Replace TAB characters description.
  */
 
-function processTabs(text) {
+export function processTabs(text: string): string {
 	return text.split("\t").join("^I");
 }
-
-module.exports = {
-	processTabs
-};
