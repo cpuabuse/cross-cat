@@ -9,11 +9,17 @@
 
 import { Command } from "commander";
 import { readFile } from "fs";
+import { stdin } from "process";
 import { processSqueezeBlank } from "./pipeline/squeeze-blank";
-import { processTabs } from "./pipeline/show-tabs.js";
+import { processTabs } from "./pipeline/show-tabs";
 import { processNumberNonBlank } from "./pipeline/number-nonblank";
-import { processEnds } from "./pipeline/show-ends.js";
-import { processNumber } from "./pipeline/number.js";
+import { processEnds } from "./pipeline/show-ends";
+import { processNumber } from "./pipeline/number";
+
+/**
+ * Literal empty string.
+ */
+const emptyString: string = "";
 
 /**
  * Interface to store flags.
@@ -87,8 +93,16 @@ function error(text: string): void {
 	console.error(`Error: ${text}`);
 }
 
+/**
+ * Process the args.
+ */
 function parseArgs(): { flags: Flags; files: Array<string> } {
 	let program = new Command();
+	let defaultFiles: boolean = true; // True if default value for file is to be assumed, which is stdin.
+	let files: Array<string>; // Array of files that user provides via command line
+	let stdinData: string = emptyString; // Data received from stdin, processed when files arguments were not privided in cmd
+
+	// Program metadeta
 	program.version("0.0.1");
 	program.description(`Concatenate FILE(s) to standard output.
 
@@ -99,6 +113,24 @@ With no FILE, or when FILE is -, read standard input.`);
 Examples:
     cat f - g  Output f's contents, then standard input, then g's contents.
     cat        Copy standard input to standard output.`);
+	});
+
+	// Get files: The method action is synchronous.
+	program.arguments("[files...]").action(function(argFiles) {
+		if (files.length > 0) {
+			files = argFiles;
+			defaultFiles = false;
+		} else {
+			stdin.once("readable", function() {
+				for (
+					let chunk: string = stdin.read();
+					chunk !== null;
+					chunk = stdin.read()
+				) {
+					stdinData += chunk;
+				}
+			});
+		}
 	});
 
 	// Initialize flags
