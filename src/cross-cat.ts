@@ -20,6 +20,7 @@ import { processNumber } from "./pipeline/number";
  * Literal empty string.
  */
 const emptyString: string = "";
+const stdinFilename: string = "-";
 
 /**
  * Interface to store flags.
@@ -32,6 +33,14 @@ interface Flags {
 	numberFlag: boolean;
 	squeezeBlankFlag: boolean;
 	showNonprintingFlag: boolean;
+}
+
+/**
+ * Parsed arguments from command line.
+ */
+interface ParsedArgs {
+	filenames: Array<string>;
+	stdin: string;
 }
 
 /**
@@ -96,11 +105,21 @@ function error(text: string): void {
 /**
  * Process the args.
  */
-function parseArgs(): { flags: Flags; files: Array<string> } {
+function parseArgs(): ParsedArgs {
 	let program = new Command();
-	let defaultFiles: boolean = true; // True if default value for file is to be assumed, which is stdin.
 	let files: Array<string>; // Array of files that user provides via command line
 	let stdinData: string = emptyString; // Data received from stdin, processed when files arguments were not privided in cmd
+
+	// Populate stdin
+	stdin.once("readable", function() {
+		for (
+			let chunk: string = stdin.read();
+			chunk !== null;
+			chunk = stdin.read()
+		) {
+			stdinData += chunk;
+		}
+	});
 
 	// Program metadeta
 	program.version("0.0.1");
@@ -119,17 +138,8 @@ Examples:
 	program.arguments("[files...]").action(function(argFiles) {
 		if (files.length > 0) {
 			files = argFiles;
-			defaultFiles = false;
 		} else {
-			stdin.once("readable", function() {
-				for (
-					let chunk: string = stdin.read();
-					chunk !== null;
-					chunk = stdin.read()
-				) {
-					stdinData += chunk;
-				}
-			});
+			files = [stdinFilename];
 		}
 	});
 
@@ -163,16 +173,15 @@ Examples:
 
 	// TODO: Check that verions from parser and -v options do not conflict
 	return {
-		files: ["Hello.txt"],
-		flags: <Flags>{
-			numberFlag: checkFlag("number"),
-			numberNonblankFlag: checkFlag("numberNonblank"),
-			showAllFlag: checkFlag("showAll"),
-			showEndsFlag: checkFlag("showEnds"),
-			showNonprintingFlag: checkFlag("showNonprinting"),
-			showTabsFlag: checkFlag("showTabs"),
-			squeezeBlankFlag: checkFlag("squeezeBlank")
-		}
-	};
+		filenames: files,
+		numberFlag: checkFlag("number"),
+		numberNonblankFlag: checkFlag("numberNonblank"),
+		showAllFlag: checkFlag("showAll"),
+		showEndsFlag: checkFlag("showEnds"),
+		showNonprintingFlag: checkFlag("showNonprinting"),
+		showTabsFlag: checkFlag("showTabs"),
+		squeezeBlankFlag: checkFlag("squeezeBlank"),
+		stdin: stdinData
+	} as ParsedArgs;
 }
 console.log(parseArgs());
