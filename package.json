@@ -24,7 +24,8 @@
   "homepage": "https://github.com/cpuabuse/node-cross-cat#readme",
   "dependencies": {
     "@types/node": "^12.12.14",
-    "commander": "^4.0.1"
+    "commander": "^4.0.1",
+    "get-stdin": "^7.0.0"
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",

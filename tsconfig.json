@@ -9,14 +9,15 @@
     "strict": true,
     "moduleResolution": "node",
     "declaration": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "esModuleInterop": true
   },
   "typedocOptions": {
     "mode": "modules",
     "out": "docs"
   },
-  "include":[
+  "include": [
     "**/*"
   ],
-  "exclude":[]
+  "exclude": []
 }

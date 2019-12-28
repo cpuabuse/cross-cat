@@ -8,8 +8,8 @@
  */
 
 import { Command } from "commander";
+import getStdin from "get-stdin";
 import { readFile } from "fs";
-import { stdin } from "process";
 import { processSqueezeBlank } from "./pipeline/squeeze-blank";
 import { processTabs } from "./pipeline/show-tabs";
 import { processNumberNonBlank } from "./pipeline/number-nonblank";
@@ -19,7 +19,6 @@ import { processNumber } from "./pipeline/number";
 /**
  * Literal empty string.
  */
-const emptyString: string = "";
 const stdinFilename: string = "-";
 
 /**
@@ -105,21 +104,8 @@ function error(text: string): void {
 /**
  * Process the args.
  */
-function parseArgs(): ParsedArgs {
+async function parseArgs(): Promise<ParsedArgs> {
 	let program = new Command();
-	let files: Array<string>; // Array of files that user provides via command line
-	let stdinData: string = emptyString; // Data received from stdin, processed when files arguments were not privided in cmd
-
-	// Populate stdin
-	stdin.once("readable", function() {
-		for (
-			let chunk: string = stdin.read();
-			chunk !== null;
-			chunk = stdin.read()
-		) {
-			stdinData += chunk;
-		}
-	});
 
 	// Program metadeta
 	program.version("0.0.1");
@@ -134,13 +120,13 @@ Examples:
     cat        Copy standard input to standard output.`);
 	});
 
-	// Get files: The method action is synchronous.
-	program.arguments("[files...]").action(function(argFiles) {
-		if (files.length > 0) {
-			files = argFiles;
-		} else {
-			files = [stdinFilename];
-		}
+	// Create new promise for filenames; Used promise for fucntion structure, even though no async code run
+	let filenames: Promise<Array<string>> = new Promise(function(resolve) {
+		// Get files; The method action is synchronous.
+		program.arguments("[filenames...]").action(function(argFiles) {
+			// Resolve the promise
+			resolve(argFiles.length > 0 ? argFiles : [stdinFilename]);
+		});
 	});
 
 	// Initialize flags
@@ -173,7 +159,7 @@ Examples:
 
 	// TODO: Check that verions from parser and -v options do not conflict
 	return {
-		filenames: files,
+		filenames: await filenames,
 		numberFlag: checkFlag("number"),
 		numberNonblankFlag: checkFlag("numberNonblank"),
 		showAllFlag: checkFlag("showAll"),
@@ -181,7 +167,10 @@ Examples:
 		showNonprintingFlag: checkFlag("showNonprinting"),
 		showTabsFlag: checkFlag("showTabs"),
 		squeezeBlankFlag: checkFlag("squeezeBlank"),
-		stdin: stdinData
+		stdin: await getStdin()
 	} as ParsedArgs;
 }
-console.log(parseArgs());
+
+parseArgs().then(function(parsedArgs) {
+	console.log(parsedArgs);
+});
