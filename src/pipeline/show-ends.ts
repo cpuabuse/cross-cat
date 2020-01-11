@@ -8,5 +8,5 @@
  * @param text Text to process
  */
 export function processEnds(text: string): string {
-	return (text.split("\n").join("$\n") + "$").split("\r$\n").join("$\r\n");
+	return `${text.split("\n").join("$\n")}$`.split("\r$\n").join("$\r\n");
 }

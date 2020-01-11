@@ -1,5 +1,5 @@
 /*
-	File: src/pipeline/squeeze-blank-flag.js
+	File: src/pipeline/squeeze-blank-flag.ts
 	cpuabuse.com
 */
 
