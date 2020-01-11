@@ -14,7 +14,7 @@ const carriageReturn = "\r";
 let treatCarriageReturnAsNotEmpty = false;
 
 // Eliminates repeating blank lines
-function processSqueezeBlank(text: string): string {
+export function processSqueezeBlank(text: string): string {
 	// Verifies if we consider the string empty
 	function stringIsEmpty(textToCheck: string): boolean {
 		if (textToCheck === emptyString) {
@@ -58,7 +58,3 @@ function processSqueezeBlank(text: string): string {
 		}
 	).text;
 }
-
-module.exports = {
-	processSqueezeBlank
-};
