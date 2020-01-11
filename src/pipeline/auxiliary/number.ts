@@ -63,11 +63,8 @@ export function number(text: string, countBlank: boolean): string {
 				text: string;
 				spaces: string;
 				previousNumberOfDigits: number;
-			} = new Object() as {
-				text: string;
-				spaces: string;
-				previousNumberOfDigits: number;
-			};
+			} = previousResult;
+
 			// The number to display; currentLineNumber is always less than numberOfLines, thus it is safe to add 2 to it; 2 because we add one since we start from 1 and not 0, and another 1, since the first line is shifted and given as initial value to reduce; If we dont count blanks, increment only on non blank
 			if (countBlank) {
 				displayNumber++;
@@ -76,12 +73,9 @@ export function number(text: string, countBlank: boolean): string {
 			}
 
 			// Generates spaces
-			if (
-				previousResult.previousNumberOfDigits !==
-				displayNumber.toString().length
-			) {
+			if (result.previousNumberOfDigits !== displayNumber.toString().length) {
 				// Because the amount of spaces in initial variable is exactly how many spaces there are in the first line, it is safe to pop up until the last line, where spaces will become an empty string
-				let spacesArray = [...previousResult.spaces];
+				let spacesArray = [...result.spaces];
 				spacesArray.pop();
 				result.spaces = spacesArray.join(emptyString);
 

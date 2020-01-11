@@ -19,6 +19,7 @@ import { processNumber } from "./pipeline/number";
 /**
  * Literal empty string.
  */
+const emptyString: string = "";
 const stdinFilename: string = "-";
 
 /**
@@ -37,7 +38,7 @@ interface Flags {
 /**
  * Parsed arguments from command line.
  */
-interface ParsedArgs {
+interface ParsedArgs extends Flags {
 	filenames: Array<string>;
 	stdin: string;
 }
@@ -46,45 +47,38 @@ interface ParsedArgs {
  * A function performing file processing, mocking behavoir of linux cat function.
  * @param filename File name
  */
-function cat(filename: string, flags: Flags): void {
-	readFile(filename, function(err, data) {
-		if (err) {
-			error(`Could not open the file - ${filename}`);
-		} else {
-			let fileData = data.toString();
+// The variable is too big to have a copy, thus we override no-param-reassign
+function cat(text: string, flags: Flags): void {
+	// Process squeeze blank lines
+	if (flags.squeezeBlankFlag) {
+		text = processSqueezeBlank(text); // eslint-disable-line no-param-reassign
+	}
 
-			// Process squeeze blank lines
-			if (flags.squeezeBlankFlag) {
-				fileData = processSqueezeBlank(fileData);
-			}
+	// Processing to show tabs
+	if (flags.showTabsFlag) {
+		text = processTabs(text); // eslint-disable-line no-param-reassign
+	}
 
-			// Processing to show tabs
-			if (flags.showTabsFlag) {
-				fileData = processTabs(fileData);
-			}
+	// Processing to show line numbers
+	if (flags.numberNonblankFlag) {
+		text = processNumberNonBlank(text); // eslint-disable-line no-param-reassign
 
-			// Processing to show line numbers
-			if (flags.numberNonblankFlag) {
-				fileData = processNumberNonBlank(fileData);
-
-				// Processing to show line endings
-				if (flags.showEndsFlag) {
-					fileData = processEnds(fileData);
-				}
-			} else {
-				// Processing to show line endings
-				if (flags.showEndsFlag) {
-					fileData = processEnds(fileData);
-				}
-
-				if (flags.numberFlag) {
-					fileData = processNumber(fileData);
-				}
-			}
-			// Print result to the console
-			log(fileData);
+		// Processing to show line endings
+		if (flags.showEndsFlag) {
+			text = processEnds(text); // eslint-disable-line no-param-reassign
 		}
-	});
+	} else {
+		// Processing to show line endings
+		if (flags.showEndsFlag) {
+			text = processEnds(text); // eslint-disable-line no-param-reassign
+		}
+
+		if (flags.numberFlag) {
+			text = processNumber(text); // eslint-disable-line no-param-reassign
+		}
+	}
+	// Print result to the console
+	log(text);
 }
 
 /**
@@ -171,6 +165,50 @@ Examples:
 	} as ParsedArgs;
 }
 
-parseArgs().then(function(parsedArgs) {
-	console.log(parsedArgs);
-});
+async function main(): Promise<void> {
+	// Stdin read or not
+	let stdinRead: boolean = false;
+
+	// Contains concatenated files
+	let text: string = emptyString;
+
+	// Parses the args
+	let parsedArgs: ParsedArgs = await parseArgs();
+
+	// Promises for texts
+	let promises: Array<Promise<string>> = new Array() as Array<Promise<string>>;
+
+	// File reading loop
+	try {
+		parsedArgs.filenames.forEach(function(filename) {
+			promises.push(
+				new Promise(function(resolve, reject) {
+					if (filename === stdinFilename) {
+						resolve(stdinRead ? emptyString : parsedArgs.stdin);
+						stdinRead = true;
+					} else {
+						readFile(filename, function(err, data) {
+							if (err) {
+								reject(filename);
+							} else {
+								resolve(data.toString());
+							}
+						});
+					}
+				})
+			);
+		});
+		for (let i: number = 0; i < promises.length; i++) {
+			// For big files await in loop will increase speed
+			text += await promises[i]; // eslint-disable-line no-await-in-loop
+		}
+	} catch (filename) {
+		error(`Could not open the file - ${filename}`);
+		return;
+	}
+
+	cat(text, parsedArgs as Flags);
+}
+
+// Calling main
+main();
