@@ -1,2 +1,3 @@
-# node-cross-cat
+# cross-cat
+
 Cross-platform cat command
