@@ -89,12 +89,12 @@ function cat(text: string, flags: Flags): void {
  */
 function log(text: string): void {
 	// eslint-disable-next-line no-console
-	console.log(text);
+	process.stdout.write(text);
 }
 
 function error(text: string): void {
 	// eslint-disable-next-line no-console
-	console.error(`Error: ${text}`);
+	process.stderr.write(`Error: ${text}`);
 }
 
 /**
