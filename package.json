@@ -1,45 +1,48 @@
 {
-  "name": "cross-cat",
-  "version": "0.0.1",
-  "description": "A cross platform cat command",
-  "main": "src/cross-cat.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cpuabuse/node-cross-cat.git"
-  },
-  "keywords": [
-    "cat"
-  ],
-  "author": "cpuabuse.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cpuabuse/node-cross-cat/issues"
-  },
-  "homepage": "https://github.com/cpuabuse/node-cross-cat#readme",
-  "dependencies": {
-    "@types/node": "^12.12.14",
-    "commander": "^4.0.1",
-    "get-stdin": "^7.0.0"
-  },
-  "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@typescript-eslint/eslint-plugin": "^2.9.0",
-    "@typescript-eslint/parser": "^2.9.0",
-    "eslint": "^6.7.1",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.17.0",
-    "prettier": "^1.19.1",
-    "typescript": "^3.7.3"
-  }
+	"name": "cross-cat",
+	"version": "0.0.4",
+	"description": "A cross platform cat command",
+	"main": "src/cross-cat.js",
+	"bin": {
+		"cat": "src/cross-cat.js"
+	},
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "echo test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cpuabuse/cross-cat.git"
+	},
+	"keywords": [
+		"cat"
+	],
+	"author": "cpuabuse.com",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/cpuabuse/cross-cat/issues"
+	},
+	"homepage": "https://github.com/cpuabuse/cross-cat#readme",
+	"dependencies": {
+		"commander": "^4.0.1",
+		"get-stdin": "^7.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.14",
+		"@types/mocha": "^5.2.7",
+		"@typescript-eslint/eslint-plugin": "^2.9.0",
+		"@typescript-eslint/parser": "^2.9.0",
+		"eslint": "^6.7.1",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-config-airbnb-base": "^14.0.0",
+		"eslint-config-prettier": "^6.7.0",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-react": "^7.17.0",
+		"prettier": "^1.19.1",
+		"typescript": "^3.7.3"
+	}
 }

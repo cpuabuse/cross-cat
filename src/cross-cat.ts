@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
 	File: src/cross-cat.ts
 	cpuabuse.com
