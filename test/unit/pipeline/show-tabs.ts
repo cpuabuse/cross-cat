@@ -4,15 +4,16 @@
 */
 
 import { strictEqual } from "assert";
-const tab: string = "\t";
 //@ts-ignore
-import { tabCharacterForShowTabs } from "./../../../test/expected/pipeline.js";
+import { tabCharacter } from "./../../../test/input/pipeline.js";
+//@ts-ignore
+import { tabCharacterForShowTabs as expected } from "./../../../test/expected/pipeline.js";
 import { processTabs } from "../../../src/pipeline/show-tabs";
 
 function testShowTabs() {
 	describe("tab character", function() {
 		it("should have expected value", function() {
-			strictEqual(tab, tabCharacterForShowTabs);
+			strictEqual(processTabs(tabCharacter), expected);
 		});
 	});
 }

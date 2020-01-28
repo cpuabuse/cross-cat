@@ -57,6 +57,6 @@ module.exports = {
 	specialCharacters,
 	specialCharactersCount,
 	tabCharacterForShowTabs,
-	tabCharacter,
+	tabCharacterForNonPrinting,
 	unicodeCharacter
 };
