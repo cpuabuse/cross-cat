@@ -2,13 +2,13 @@
 const carriageReturnCharacter = "\r";
 
 // Delete
-const del = "^?"
+const del = "^?";
 
 // Literal empty string
 const emptyString = "";
 
 // Characters between 160 and 255; but tested manually from 170 to 172
-const extendedHigher = "ª«¬"
+const extendedHigher = "ª«¬";
 
 // All of the letters, lower case and upper case
 const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -20,7 +20,7 @@ const lineFeedCharacter = "\n";
 const numbers = "0123456789";
 
 // Literal space
-const space = " "
+const space = " ";
 
 // Special characters from 33 to 126
 const specialCharacters = "!\"#$%&'()*+,-./:;>=<?@[\\]^_`{|}~";
@@ -32,27 +32,27 @@ const tabCharacter = "\t";
 const unicodeCharacter = "ハローワールド";
 
 // Extended characters from 128 to 160
-function getExtendedLower(){
-    let array = new Array();
-    
-    // Testing the 2 first characters
-    for(i = 128; i < 130; i++){
-        array.push(String.fromCharCode(i));
-    }
-    return array.join(emptyString);
+function getExtendedLower() {
+	let array = new Array();
+
+	// Testing the 2 first characters
+	for (i = 128; i < 130; i++) {
+		array.push(String.fromCharCode(i));
+	}
+	return array.join(emptyString);
 }
 
 module.exports = {
 	specialCharacters,
 	numbers,
-    letters,
-    getExtendedLower,
-    emptyString,
-    space,
-    unicodeCharacter,
-    tabCharacter,
-    lineFeedCharacter,
-    carriageReturnCharacter,
-    del,
-    extendedHigher
+	letters,
+	getExtendedLower,
+	emptyString,
+	space,
+	unicodeCharacter,
+	tabCharacter,
+	lineFeedCharacter,
+	carriageReturnCharacter,
+	del,
+	extendedHigher
 };
