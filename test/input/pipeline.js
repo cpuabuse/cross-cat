@@ -19,6 +19,13 @@ const lineFeedCharacter = "\n";
 // Numbers
 const numbers = "0123456789";
 
+/**
+ * TSV string to test `processTabs` function.
+ */
+const fruitTable = "Name	Weight	Color \
+Orange	200	Orange \
+Apple	250	Red";
+
 // Literal space
 const space = " ";
 
@@ -43,6 +50,7 @@ function getExtendedLower() {
 }
 
 module.exports = {
+	fruitTable,
 	specialCharacters,
 	numbers,
 	letters,

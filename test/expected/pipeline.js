@@ -25,6 +25,13 @@ const numbers = "0123456789";
 // Total amount of numbers
 const numbersCount = 10;
 
+/**
+ * Expected value for test of `processTabs` function.
+ */
+const fruitTable = "Name^IWeight^IColor \
+Orange^I200^IOrange \
+Apple^I250^IRed";
+
 // Literal space
 const space = " ";
 
@@ -33,9 +40,6 @@ const specialCharacters = "!\"#$%&'()*+,-./:;>=<?@[\\]^_`{|}~";
 
 // Maximum special character minus first 32 characters, 10 numbers, 26 uppercase letters, 26 lowercase letters, and a space.
 const specialCharactersCount = 127 - 32 - 10 - 26 - 26 - 1;
-
-// Tab for show-tabs
-const tabCharacterForShowTabs = "^I";
 
 // Tab character for show-nonprinting
 const tabCharacterForNonPrinting = "\t";
@@ -48,6 +52,7 @@ module.exports = {
 	del,
 	extendedCharacters,
 	extendedHigher,
+	fruitTable,
 	letters,
 	lettersCount,
 	lineFeedCharacter,
@@ -56,7 +61,6 @@ module.exports = {
 	space,
 	specialCharacters,
 	specialCharactersCount,
-	tabCharacterForShowTabs,
 	tabCharacterForNonPrinting,
 	unicodeCharacter
 };

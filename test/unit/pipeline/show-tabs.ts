@@ -5,15 +5,15 @@
 
 import { strictEqual } from "assert";
 //@ts-ignore
-import { tabCharacter } from "../../input/pipeline.js";
+import { fruitTable as input } from "../../input/pipeline.js";
 //@ts-ignore
-import { tabCharacterForShowTabs as expected } from "../../expected/pipeline.js";
+import { fruitTable as expected } from "../../expected/pipeline.js";
 import { processTabs } from "../../../src/pipeline/show-tabs";
 
 function testShowTabs() {
-	describe("tab character", function() {
-		it("should have expected value", function() {
-			strictEqual(processTabs(tabCharacter), expected);
+	describe("Fruit table TSV string", function() {
+		it("should have tabs replaced", function() {
+			strictEqual(processTabs(input), expected);
 		});
 	});
 }
