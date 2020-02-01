@@ -5,9 +5,9 @@
 
 import { strictEqual } from "assert";
 //@ts-ignore
-import { tabCharacter } from "./../../../test/input/pipeline.js";
+import { tabCharacter } from "../../input/pipeline.js";
 //@ts-ignore
-import { tabCharacterForShowTabs as expected } from "./../../../test/expected/pipeline.js";
+import { tabCharacterForShowTabs as expected } from "../../expected/pipeline.js";
 import { processTabs } from "../../../src/pipeline/show-tabs";
 
 function testShowTabs() {
