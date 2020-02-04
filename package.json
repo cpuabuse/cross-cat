@@ -10,7 +10,7 @@
 		"test": "test"
 	},
 	"scripts": {
-		"test": "echo test"
+		"test": "mocha test/unit/pipeline/show-nonprinting.js"
 	},
 	"repository": {
 		"type": "git",
@@ -30,8 +30,8 @@
 		"get-stdin": "^7.0.0"
 	},
 	"devDependencies": {
-		"@types/node": "^12.12.14",
 		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.12.14",
 		"@typescript-eslint/eslint-plugin": "^2.9.0",
 		"@typescript-eslint/parser": "^2.9.0",
 		"eslint": "^6.7.1",
@@ -42,6 +42,7 @@
 		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-prettier": "^3.1.1",
 		"eslint-plugin-react": "^7.17.0",
+		"mocha": "^7.0.1",
 		"prettier": "^1.19.1",
 		"typescript": "^3.7.3"
 	}

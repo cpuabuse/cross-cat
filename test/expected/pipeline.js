@@ -42,7 +42,7 @@ const specialCharacters = "!\"#$%&'()*+,-./:;>=<?@[\\]^_`{|}~";
 const specialCharactersCount = 127 - 32 - 10 - 26 - 26 - 1;
 
 // Tab character for show-nonprinting
-const tabCharacterForNonPrinting = "\t";
+const tabCharacter = "\t";
 
 // Above 255
 const unicodeCharacter = "M-^?M-^?M-^?M-^?M-^?M-^?M-^?";
@@ -61,6 +61,6 @@ module.exports = {
 	space,
 	specialCharacters,
 	specialCharactersCount,
-	tabCharacterForNonPrinting,
+	tabCharacter,
 	unicodeCharacter
 };
