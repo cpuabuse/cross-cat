@@ -15,7 +15,7 @@ function testShowNonPrinting() {
 			it("should have expected value", function() {
 				assert.strictEqual(
 					showNonPrinting.showNonPrinting(inputData.tabCharacter),
-					expected.tabCharacterForNonPrinting
+					expected.tabCharacter
 				);
 			});
 		});
