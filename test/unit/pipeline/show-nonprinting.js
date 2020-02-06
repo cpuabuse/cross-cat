@@ -1,7 +1,11 @@
 /*
-	File: src/test/unit/pipeline/show-nonprinting.js
+	File: test/unit/pipeline/show-nonprinting.js
 	cpuabuse.com
 */
+
+/**
+ * Tests `showNonprinting`.
+ */
 
 const assert = require("assert");
 const inputData = require("../../../test/input/pipeline.js");
