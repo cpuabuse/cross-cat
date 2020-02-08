@@ -4,6 +4,11 @@ const carriageReturnCharacter = "\r";
 // Delete
 const del = "^?";
 
+// Number nonblank
+const food = "Beef \
+Sugar cane \
+Beans";
+
 // Literal empty string
 const emptyString = "";
 
@@ -50,6 +55,7 @@ function getExtendedLower() {
 }
 
 module.exports = {
+	food,
 	fruitTable,
 	specialCharacters,
 	numbers,

@@ -25,6 +25,11 @@ const numbers = "0123456789";
 // Total amount of numbers
 const numbersCount = 10;
 
+// Number nonblank
+const food = "1. Beef \
+2. Sugar cane \
+3. Beans";
+
 /**
  * Expected value for test of `processTabs` function.
  */
@@ -52,6 +57,7 @@ module.exports = {
 	del,
 	extendedCharacters,
 	extendedHigher,
+	food,
 	fruitTable,
 	letters,
 	lettersCount,
