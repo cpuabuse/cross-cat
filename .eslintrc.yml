@@ -16,6 +16,13 @@ parserOptions:
 rules:
   prettier/prettier: error
 
+  # Requires type definitions to exist.
+  # We want all types.
+  "@typescript-eslint/typedef":
+    - error
+    - objectDestructuring: true
+      variableDeclaration: true
+
   # Enforce consistent indentation.
   # Managed by prettier.
   indent: off
@@ -42,12 +49,12 @@ rules:
 
   # Disallow Magic Numbers.
   # We should use consts.
-  no-magic-numbers: 
+  no-magic-numbers:
     - error
     - ignore:
-      - 0
-      - 1
-      - -1
+        - 0
+        - 1
+        - -1
 
   # Disallow the unary operators ++ and --.
   # Always.
