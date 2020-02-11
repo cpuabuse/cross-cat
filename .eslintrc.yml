@@ -23,6 +23,11 @@ rules:
     - objectDestructuring: true
       variableDeclaration: true
 
+  # Require explicit return types on functions and class methods.
+  # We want all types.
+  "@typescript-eslint/explicit-function-return-type":
+    - error
+
   # Enforce consistent indentation.
   # Managed by prettier.
   indent: off
@@ -72,6 +77,6 @@ rules:
   # Sort everything.
   sort-keys: 2
 
-  # Variable Sorting.
+  # Variable Sorting
   # Sort everything
   sort-vars: 2
