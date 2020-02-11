@@ -14,9 +14,9 @@ const carriageReturnCharacter: string = "\r";
 const del: string = "^?";
 
 // Number nonblank
-const food: string = "Beef \
-Sugar cane \
-Beans";
+const food: string = `Beef
+Sugar cane
+Beans`;
 
 // Literal empty string
 const emptyString: string = "";
@@ -36,9 +36,9 @@ const numbers: string = "0123456789";
 /**
  * TSV string to test `processTabs` function.
  */
-const fruitTable: string = "Name	Weight	Color \
-Orange	200	Orange \
-Apple	250	Red";
+const fruitTable: string = `Name	Weight	Color
+Orange	200	Orange
+Apple	250	Red`;
 
 // Literal space
 const space: string = " ";
@@ -53,29 +53,36 @@ const tabCharacter: string = "\t";
 const unicodeCharacter: string = "ハローワールド";
 
 // Extended characters from 128 to 160
-function getExtendedLower() {
-	let array = new Array();
+function getExtendedLower(): string {
+	// An array of characters to return as a string
+	let array: string[] = new Array();
+
+	// Minimum character number that function returns in the string
+	let extendedLowerMin: number = 128;
+
+	// Maximum character number that function returns in the string
+	let extendedLowerMax: number = 130;
 
 	// Testing the 2 first characters
-	for (i = 128; i < 130; i++) {
+	for (let i: number = extendedLowerMin; i < extendedLowerMax; i++) {
 		array.push(String.fromCharCode(i));
 	}
 	return array.join(emptyString);
 }
 
 module.exports = {
-	food,
-	fruitTable,
-	specialCharacters,
-	numbers,
-	letters,
-	getExtendedLower,
-	emptyString,
-	space,
-	unicodeCharacter,
-	tabCharacter,
-	lineFeedCharacter,
 	carriageReturnCharacter,
 	del,
-	extendedHigher
+	emptyString,
+	extendedHigher,
+	food,
+	fruitTable,
+	getExtendedLower,
+	letters,
+	lineFeedCharacter,
+	numbers,
+	space,
+	specialCharacters,
+	tabCharacter,
+	unicodeCharacter
 };
