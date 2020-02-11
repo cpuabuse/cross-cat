@@ -17,7 +17,7 @@ import {
 	numbers as inputNumbers,
 	letters as inputLetters,
 	del as inputDel,
-	getInputExtendedLower,
+	getExtendedLower as getInputExtendedLower,
 	extendedHigher as inputExtendedHigher,
 	unicodeCharacter as inputUnicodeCharacter
 	//@ts-ignore
