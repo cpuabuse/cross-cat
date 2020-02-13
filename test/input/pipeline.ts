@@ -13,7 +13,7 @@ const carriageReturnCharacter: string = "\r";
 // Delete
 const del: string = "^?";
 
-// Number nonblank
+// Number
 const food: string = `Beef
 Sugar cane
 Beans`;

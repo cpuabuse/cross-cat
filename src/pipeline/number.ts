@@ -10,5 +10,5 @@ import { number } from "./auxiliary/number";
  * @param text Text to process
  */
 export function processNumber(text: string): string {
-	return number(text, false);
+	return number(text, true);
 }
