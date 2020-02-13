@@ -46,6 +46,11 @@ const fruitTable: string = `Name^IWeight^IColor \
 Orange^I200^IOrange \
 Apple^I250^IRed`;
 
+/**
+ * Expected name for test of`processEnds`function.
+ */
+const fruitList: string = `Apple^Orange`;
+
 // Literal space
 const space: string = " ";
 
@@ -67,6 +72,7 @@ module.exports = {
 	extendedCharacters,
 	extendedHigher,
 	food,
+	fruitList,
 	fruitTable,
 	letters,
 	lettersCount,

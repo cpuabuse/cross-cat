@@ -40,6 +40,12 @@ const fruitTable: string = `Name	Weight	Color
 Orange	200	Orange
 Apple	250	Red`;
 
+/**
+ * List to test `processEnds` function.
+ */
+const fruitList: string = `Apple
+Orange`;
+
 // Literal space
 const space: string = " ";
 
@@ -76,6 +82,7 @@ module.exports = {
 	emptyString,
 	extendedHigher,
 	food,
+	fruitList,
 	fruitTable,
 	getExtendedLower,
 	letters,
