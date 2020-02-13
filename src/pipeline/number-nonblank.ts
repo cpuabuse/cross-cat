@@ -6,7 +6,7 @@
 import { number } from "./auxiliary/number";
 
 /**
- * Adds numbers to the begining of the line.
+ * Number nonempty output lines, overrides -n.
  * @param text Text to process
  */
 export function processNumberNonBlank(text: string): string {

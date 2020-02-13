@@ -13,9 +13,12 @@ const tabulationSpace = " ";
 let treatCarriageReturnAsNotEmpty = false;
 
 function textIsEmpty(text: string): boolean {
-	return text.length === 0 || treatCarriageReturnAsNotEmpty // Account for Windows line endings
-		? false
-		: text === "\r";
+	return (
+		text.length === 0 ||
+		(treatCarriageReturnAsNotEmpty // Account for Windows line endings
+			? false
+			: text === "\r")
+	);
 }
 
 export function number(text: string, countBlank: boolean): string {
