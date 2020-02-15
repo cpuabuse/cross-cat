@@ -39,7 +39,7 @@ import {
 } from "../../expected/pipeline";
 import { showNonPrinting } from "../../../src/pipeline/show-nonprinting";
 
-function testShowNonPrinting() {
+export function testShowNonPrinting() {
 	describe("non-printing", function() {
 		// Tab character
 		describe("tab character", function() {
@@ -158,5 +158,3 @@ function testShowNonPrinting() {
 		});
 	});
 }
-
-testShowNonPrinting();

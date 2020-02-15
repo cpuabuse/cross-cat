@@ -50,7 +50,8 @@ Apple^I250^IRed`;
 /**
  * Expected name for test of`processEnds`function.
  */
-export const fruitList: string = `Apple^Orange`;
+export const fruitList: string = `Apple$
+Orange$`;
 
 // Literal space
 export const space: string = " ";

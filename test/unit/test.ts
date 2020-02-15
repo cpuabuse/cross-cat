@@ -7,9 +7,9 @@
  * Performs a series of unit tests.
  */
 
-//@ts-ignore
-import { testShowNonPrinting } from "./pipeline/show-nonprinting.js";
+import { testShowNonPrinting } from "./pipeline/show-nonprinting";
 import { testShowTabs } from "./pipeline/show-tabs";
+import { testShowEnds } from "./pipeline/show-ends";
 
 /**
  * All of the unit tests.
@@ -20,4 +20,7 @@ export function unitTest(): void {
 
 	// showTabs
 	testShowTabs();
+
+	// showEnds
+	testShowEnds();
 }
