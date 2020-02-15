@@ -8,10 +8,8 @@
  */
 
 import { strictEqual } from "assert";
-//@ts-ignore
-import { fruitList as inputFruitList } from "../../input/pipeline.js";
-//@ts-ignore
-import { fruitList as expectedFruitList } from "../../expected/pipeline.js";
+import { fruitList as inputFruitList } from "../../input/pipeline";
+import { fruitList as expectedFruitList } from "../../expected/pipeline";
 import { processEnds } from "../../../src/pipeline/show-ends";
 
 export function testShowEnds(): void {

@@ -20,8 +20,7 @@ import {
 	getExtendedLower as getInputExtendedLower,
 	extendedHigher as inputExtendedHigher,
 	unicodeCharacter as inputUnicodeCharacter
-	//@ts-ignore
-} from "../../input/pipeline.js";
+} from "../../input/pipeline";
 import {
 	tabCharacter as expectedTabCharacter,
 	lineFeedCharacter as expectedLineFeedCharacter,
@@ -37,10 +36,8 @@ import {
 	extendedCharacters as expectedExtendedCharacters,
 	extendedHigher as expectedExtendedHigher,
 	unicodeCharacter as expectedUnicodeCharacter
-	//@ts-ignore
-} from "../../expected/pipeline.js";
-//@ts-ignore
-import { showNonPrinting } from "../../../src/pipeline/show-nonprinting.js";
+} from "../../expected/pipeline";
+import { showNonPrinting } from "../../../src/pipeline/show-nonprinting";
 
 function testShowNonPrinting() {
 	describe("non-printing", function() {
