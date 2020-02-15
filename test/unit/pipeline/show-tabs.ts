@@ -19,5 +19,3 @@ export function testShowTabs(): void {
 		});
 	});
 }
-
-testShowTabs();
