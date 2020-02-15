@@ -8,13 +8,11 @@
  */
 
 import { strictEqual } from "assert";
-//@ts-ignore
-import { fruitTable as input } from "../../input/pipeline.js";
-//@ts-ignore
-import { fruitTable as expected } from "../../expected/pipeline.js";
+import { fruitTable as input } from "../../input/pipeline";
+import { fruitTable as expected } from "../../expected/pipeline";
 import { processTabs } from "../../../src/pipeline/show-tabs";
 
-export function testShowTabs():void {
+export function testShowTabs(): void {
 	describe("Fruit table TSV string", function() {
 		it("should have tabs replaced", function() {
 			strictEqual(processTabs(input), expected);
