@@ -1,3 +1,7 @@
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/cpuabuse/cross-cat)
+![Code Climate issues](https://img.shields.io/codeclimate/issues/cpuabuse/cross-cat)
+![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/cpuabuse/cross-cat)
+
 # cross-cat
 
 Cross-platform cat command.
