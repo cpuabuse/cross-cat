@@ -35,10 +35,10 @@ export const numbers: string = "0123456789";
 // Total amount of numbers
 export const numbersCount: number = 10;
 
-// Number nonblank
-export const food: string = `1. Beef 
-2. Sugar cane 
-3. Beans`;
+// Number
+export const food: string = `1 Beef
+2 Sugar cane
+3 Beans`;
 
 // Number-nonblank
 export const animals: string = `1 Dog
