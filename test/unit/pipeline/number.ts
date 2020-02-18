@@ -8,7 +8,7 @@
  */
 
 import { strictEqual } from "assert";
-import { processNumberNonBlank } from "../../../src/pipeline/number-nonblank";
+import { processNumber } from "../../../src/pipeline/number";
 //@ts-ignore
 import { food as input } from "../../input/pipeline.js";
 //@ts-ignore
@@ -18,7 +18,7 @@ import { food as expected } from "../../expected/pipeline.js";
 export function testNumber(): void {
 	describe("number", function() {
 		it("should add numbers to the begining of the lines", function() {
-			strictEqual(processNumberNonBlank(input), expected);
+			strictEqual(processNumber(input), expected);
 		});
 	});
 }

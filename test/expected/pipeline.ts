@@ -40,6 +40,12 @@ export const food: string = `1. Beef
 2. Sugar cane 
 3. Beans`;
 
+// Number-nonblank
+export const animals: string = `1 Dog
+
+2 Cat
+3 Snake`;
+
 /**
  * Expected value for test of `processTabs` function.
  */

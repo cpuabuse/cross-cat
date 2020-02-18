@@ -18,6 +18,12 @@ export const food: string = `Beef
 Sugar cane
 Beans`;
 
+// Number-nonblank
+export const animals: string = `Dog
+
+Cat
+Snake`;
+
 // Literal empty string
 export const emptyString: string = "";
 
