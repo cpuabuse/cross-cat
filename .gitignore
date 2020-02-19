@@ -1,8 +1,7 @@
-cc-test-reporter
+*.d.ts
 coverage
+*.js
+*.js.map
 node_modules
 .nyc_output
 package-lock.json
-*.js
-*.js.map
-*.d.ts
