@@ -11,9 +11,11 @@
 		"test": "test"
 	},
 	"scripts": {
+		"codacy": "npm run coverage && node src/cross-cat.js coverage/lcov.info | codacy-coverage",
+		"coverage": "npm run build && nyc npm run ts-test",
+		"build": "tsc",
 		"test": "mocha",
-		"ts-test": "mocha --require ts-node/register test/test.ts",
-		"coverage": "nyc npm run ts-test"
+		"ts-test": "mocha --require ts-node/register test/test.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -38,6 +40,7 @@
 		"@types/node": "^12.12.14",
 		"@typescript-eslint/eslint-plugin": "^2.19.2",
 		"@typescript-eslint/parser": "^2.19.2",
+		"codacy-coverage": "^3.4.0",
 		"eslint": "^6.7.1",
 		"eslint-config-airbnb": "^18.0.1",
 		"eslint-config-airbnb-base": "^14.0.0",
