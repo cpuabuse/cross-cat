@@ -1,7 +1,7 @@
 #!/usr/bin/env pwsh
 # File is to be dot-sourced
 
-if ($null -ne (Get-Variable -Name "StartPipeline" -Scope "Script" -ErrorAction "Ignore")) {
+if ($null -ne (Get-Variable -Name "StartPipelineGuard" -Scope "Script" -ErrorAction "Ignore")) {
 	# Revert error action
 	$ErrorActionPreference = $script:ErrorActionPreferenceOriginal
 	Remove-Variable -Name "ErrorActionPreferenceOriginal" -Scope "Script"
@@ -13,5 +13,5 @@ if ($null -ne (Get-Variable -Name "StartPipeline" -Scope "Script" -ErrorAction "
 	Pop-Location
 
 	# Guard
-	Remove-Variable -Name "StartPipeline" -Scope "Script"
+	Remove-Variable -Name "StartPipelineGuard" -Scope "Script"
 }
