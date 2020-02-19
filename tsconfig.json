@@ -1,23 +1,19 @@
 {
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "target": "es2019",
-    "module": "commonjs",
-    "lib": [
-      "es2019"
-    ],
-    "strict": true,
-    "moduleResolution": "node",
-    "declaration": true,
-    "sourceMap": true,
-    "esModuleInterop": true
-  },
-  "typedocOptions": {
-    "mode": "modules",
-    "out": "docs"
-  },
-  "include": [
-    "**/*"
-  ],
-  "exclude": []
+	"compilerOptions": {
+		"noImplicitAny": true,
+		"target": "es2019",
+		"module": "commonjs",
+		"lib": ["es2019"],
+		"strict": true,
+		"moduleResolution": "node",
+		"declaration": true,
+		"sourceMap": true,
+		"esModuleInterop": true
+	},
+	"typedocOptions": {
+		"mode": "modules",
+		"out": "docs"
+	},
+	"include": ["**/*"],
+	"exclude": []
 }
