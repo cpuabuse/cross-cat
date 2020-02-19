@@ -4,7 +4,8 @@
 	"description": "A cross platform cat command",
 	"main": "src/cross-cat.js",
 	"bin": {
-		"cat": "src/cross-cat.js"
+		"cat": "src/cross-cat.js",
+		"cross-cat": "src/cross-cat.js"
 	},
 	"directories": {
 		"test": "test"
