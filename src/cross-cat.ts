@@ -127,10 +127,7 @@ Examples:
 
 	// Initialize flags
 	program.option("-A, --show-all", "equivalent to -vET");
-	program.option(
-		"-b, --number-nonblank",
-		"number nonempty output lines, overrides -n"
-	);
+	program.option("-b, --number-nonblank", "number nonempty output lines, overrides -n");
 	program.option("-e", "equivalent to -vE");
 	program.option("-E, --show-ends", "display $ at end of each line");
 	program.option("-n, --number", "number all output lines");
@@ -138,10 +135,7 @@ Examples:
 	program.option("-t", "equivalent to -vT");
 	program.option("-T, --show-tabs", "display TAB characters as ^I");
 	program.option("-u", "(ignored)");
-	program.option(
-		"-v, --show-nonprinting",
-		"use ^ and M- notation, except for LFD and TAB"
-	);
+	program.option("-v, --show-nonprinting", "use ^ and M- notation, except for LFD and TAB");
 	program.parse(process.argv);
 
 	function checkFlag(flag: string): boolean {
@@ -163,7 +157,7 @@ Examples:
 		showNonprintingFlag: checkFlag("showNonprinting"),
 		showTabsFlag: checkFlag("showTabs"),
 		squeezeBlankFlag: checkFlag("squeezeBlank"),
-		stdin: await getStdin()
+		stdin: process.stdin.isTTY ? await getStdin() : emptyString
 	} as ParsedArgs;
 }
 
