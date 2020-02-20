@@ -11,7 +11,7 @@
 		"test": "test"
 	},
 	"scripts": {
-		"codacy": "npm run build && npm run coverage && node src/cross-cat.js coverage/lcov.info | codacy-coverage",
+		"codacy": "npm run build && npm run coverage && npx cross-cat coverage/lcov.info | codacy-coverage",
 		"coverage": "nyc npm run ts-test",
 		"build": "tsc",
 		"test": "mocha",
