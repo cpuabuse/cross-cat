@@ -11,8 +11,8 @@
 		"test": "test"
 	},
 	"scripts": {
-		"codacy": "npm run coverage && node src/cross-cat.js coverage/lcov.info | codacy-coverage",
-		"coverage": "npm run build && nyc npm run ts-test",
+		"codacy": "npm run build && npm run coverage && node src/cross-cat.js coverage/lcov.info | codacy-coverage",
+		"coverage": "nyc npm run ts-test",
 		"build": "tsc",
 		"test": "mocha",
 		"ts-test": "mocha --require ts-node/register test/test.ts"
@@ -31,24 +31,25 @@
 	},
 	"homepage": "https://github.com/cpuabuse/cross-cat#readme",
 	"dependencies": {
-		"commander": "^4.0.1",
+		"commander": "^4.1.1",
 		"get-stdin": "^7.0.0"
 	},
 	"devDependencies": {
 		"@istanbuljs/nyc-config-typescript": "^1.0.1",
 		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.12.14",
-		"@typescript-eslint/eslint-plugin": "^2.19.2",
-		"@typescript-eslint/parser": "^2.19.2",
+		"@types/node": "^12.12.27",
+		"@typescript-eslint/eslint-plugin": "^2.20.0",
+		"@typescript-eslint/parser": "^2.20.0",
 		"codacy-coverage": "^3.4.0",
 		"eslint": "^6.7.1",
 		"eslint-config-airbnb": "^18.0.1",
 		"eslint-config-airbnb-base": "^14.0.0",
 		"eslint-config-prettier": "^6.7.0",
-		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-import": "^2.20.1",
 		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-prettier": "^3.1.1",
-		"eslint-plugin-react": "^7.17.0",
+		"eslint-plugin-react": "^7.18.3",
+		"eslint-plugin-react-hooks": "^1.7.0",
 		"mocha": "^7.0.1",
 		"nyc": "^15.0.0",
 		"prettier": "^1.19.1",
