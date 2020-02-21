@@ -10,6 +10,9 @@
 	"directories": {
 		"test": "test"
 	},
+	"engines": {
+		"node": ">=12"
+	},
 	"scripts": {
 		"codacy": "npm run build && npm run coverage && npx cross-cat coverage/lcov.info | codacy-coverage",
 		"coverage": "nyc npm run ts-test",
