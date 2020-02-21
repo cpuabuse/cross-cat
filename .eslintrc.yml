@@ -17,7 +17,7 @@ rules:
   prettier/prettier: error
 
   # Requires type definitions to exist.
-  # We want all types.
+  # We want all types. Multiple options on by default.
   "@typescript-eslint/typedef":
     - error
     - objectDestructuring: true
@@ -28,6 +28,11 @@ rules:
   "@typescript-eslint/explicit-function-return-type":
     - error
 
+  # Require a consistent member declaration order.
+  # Order what can be ordered. Alphabetize is on the way https://github.com/typescript-eslint/typescript-eslint/pull/263
+  "@typescript-eslint/member-ordering":
+    - error
+
   # Enforce consistent indentation.
   # Managed by prettier.
   indent: off
@@ -35,10 +40,6 @@ rules:
   # When there is only a single export from a module, prefer using default export over named export.
   # To have persistent imports there is no need for arbitrary default imports as modules will grow.
   import/prefer-default-export: off
-
-  # Require or disallow named function expressions.
-  # Too many anonymous functions to manage.
-  func-names: off
 
   # Disallow Array constructors.
   # Let programmer decide.
@@ -65,18 +66,29 @@ rules:
   # Always.
   no-plusplus: off
 
-  # Disallow Early Use.
-  # No necessity.
-  no-use-before-define: off
-
   # Suggest using const.
   # Let programmer decide.
   prefer-const: off
 
+  # Checks for presence of jsdoc comments, on class declarations as well as functions.
+  # Properly document everything. Default is `"FunctionDeclaration": true`.
+  require-jsdoc:
+    - error
+    - require:
+        MethodDefinition: true
+        ClassDeclaration: true
+        ArrowFunctionExpression: true
+        FunctionExpression: true
+
+  # Import Sorting.
+  # Sort everything.
+  sort-imports:
+    - error
+
   # Require object keys to be sorted.
   # Sort everything.
-  sort-keys: 2
+  sort-keys: error
 
   # Variable Sorting
   # Sort everything
-  sort-vars: 2
+  sort-vars: error
