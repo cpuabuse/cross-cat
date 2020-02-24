@@ -7,14 +7,22 @@
  * Performs a series of unit tests.
  */
 
+import { testNumber } from "./pipeline/number";
+import { testNumberNonBlank } from "./pipeline/number-nonblank";
+import { testShowEnds } from "./pipeline/show-ends";
 import { testShowNonPrinting } from "./pipeline/show-nonprinting";
 import { testShowTabs } from "./pipeline/show-tabs";
-import { testShowEnds } from "./pipeline/show-ends";
 
 /**
  * All of the unit tests.
  */
 export function unitTest(): void {
+	// testNumber
+	testNumber();
+
+	// testNumberNonBlank
+	testNumberNonBlank();
+
 	// showNonpriting
 	testShowNonPrinting();
 
