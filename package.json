@@ -1,6 +1,6 @@
 {
 	"name": "cross-cat",
-	"version": "0.0.8",
+	"version": "0.1.0",
 	"description": "A cross platform cat command",
 	"main": "src/cross-cat.js",
 	"bin": {
