@@ -27,7 +27,7 @@ Written in TypeScript natively.
 
 ## Prerequisites
 
-- [Node.js version 12 or higher](https://nodejs.org/en/download/)
+- [Node.js version 10 or higher](https://nodejs.org/en/download/)
 
 ## Installation
 

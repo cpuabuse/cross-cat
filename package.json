@@ -11,13 +11,13 @@
 		"test": "test"
 	},
 	"engines": {
-		"node": ">=12"
+		"node": ">=10"
 	},
 	"scripts": {
 		"codacy": "npm run build && npm run coverage && npx cross-cat coverage/lcov.info | codacy-coverage",
 		"coverage": "nyc npm run ts-test",
 		"build": "tsc",
-		"test": "mocha",
+		"test": "npm run build && mocha",
 		"ts-test": "mocha --require ts-node/register test/test.ts"
 	},
 	"repository": {
