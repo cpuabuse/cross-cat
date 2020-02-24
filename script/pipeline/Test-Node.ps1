@@ -7,8 +7,8 @@
 & $Paths.InstallDependencies
 
 # Test
-npm test; if (-not $?) { throw }
-npm run ts-test; if (-not $?) { throw }
+npm run test:js:mocha; if (-not $?) { throw }
+npm run test:ts:mocha; if (-not $?) { throw }
 
 # Stop-Pipeline
 $Paths.StopPipeline

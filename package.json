@@ -15,11 +15,11 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"codacy": "npm run build && npm run coverage && npx cross-cat coverage/lcov.info | codacy-coverage",
-		"coverage": "nyc npm run ts-test",
-		"junit": "npm run build && mocha test --reporter mocha-junit-reporter",
-		"test": "npm run build && mocha",
-		"ts-test": "mocha --require ts-node/register test/test.ts"
+		"coverage:codacy": "npm run coverage:nyc && npx cross-cat coverage/lcov.info | codacy-coverage",
+		"coverage:nyc": "nyc npm run test:ts:mocha",
+		"test:js:junit": "npm run build && mocha test --reporter mocha-junit-reporter",
+		"test:js:mocha": "npm run build && mocha",
+		"test:ts:mocha": "mocha --require ts-node/register test/test.ts"
 	},
 	"repository": {
 		"type": "git",

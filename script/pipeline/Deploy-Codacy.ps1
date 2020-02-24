@@ -8,7 +8,7 @@
 & $Paths.InstallDependencies
 
 # Run coverage and get lcov
-npm run codacy; if (-not $?) { throw }
+npm run coverage:codacy; if (-not $?) { throw }
 
 # Stop-Pipeline
 & $Paths.StopPipeline

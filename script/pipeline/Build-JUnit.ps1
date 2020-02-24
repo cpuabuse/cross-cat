@@ -7,7 +7,7 @@
 & $Paths.InstallDependencies
 
 # Build
-npm run junit; if (-not $?) { throw }
+npm run test:js:junit; if (-not $?) { throw }
 
 # Stop-Pipeline
 $Paths.StopPipeline
