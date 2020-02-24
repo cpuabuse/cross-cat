@@ -81,7 +81,6 @@ stages:
                   inputs: 
                     codeCoverageTool: Cobertura
                     summaryFileLocation: 'coverage/cobertura-coverage.xml'
-                    reportDirectory: 'coverage'
       - deployment: test_azure_pipelines
         environment: test
         pool:
