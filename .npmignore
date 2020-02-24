@@ -11,4 +11,5 @@ coverage
 script
 *.ts
 test
+test-results.xml
 tsconfig.json
