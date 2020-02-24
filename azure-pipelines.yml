@@ -49,7 +49,7 @@ stages:
           - pwsh: script/pipeline/Test-Node.ps1
   - stage: deploy
     jobs:
-      - deployment: coverage
+      - deployment: coverage_codacy
         environment: coverage
         pool:
           vmImage: ubuntu-latest
@@ -64,8 +64,26 @@ stages:
               - pwsh: script/pipeline/Deploy-Codacy.ps1
                 env:
                   CODACY_PROJECT_TOKEN: $(CodacyProjectToken)
-      - deployment: azure_pipelines
+      - deployment: coverage_azure_pipelines
         environment: coverage
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: NodeTool@0
+                  inputs:
+                    versionSpec: 13.x
+                - checkout: self
+                - pwsh: script/pipeline/Build-Cobertura.ps1
+                - task: PublishCodeCoverageResults@1
+                  inputs: 
+                    codeCoverageTool: Cobertura
+                    summaryFileLocation: 'coverage/cobertura-coverage.xml'
+                    reportDirectory: 'coverage'
+      - deployment: test_azure_pipelines
+        environment: test
         pool:
           vmImage: ubuntu-latest
         strategy:
