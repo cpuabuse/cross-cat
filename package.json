@@ -15,8 +15,9 @@
 	},
 	"scripts": {
 		"build": "tsc",
-		"coverage:codacy": "npm run coverage:nyc && npx cross-cat coverage/lcov.info | codacy-coverage",
-		"coverage:nyc": "nyc npm run test:ts:mocha",
+		"coverage:cobertura": "nyc --reporter cobertura npm run test:ts:mocha",
+		"coverage:lcov": "nyc npm run test:ts:mocha",
+		"coverage:codacy": "npm run coverage:lcov && npx cross-cat coverage/lcov.info | codacy-coverage",
 		"test:js:junit": "npm run build && mocha test --reporter mocha-junit-reporter",
 		"test:js:mocha": "npm run build && mocha",
 		"test:ts:mocha": "mocha --require ts-node/register test/test.ts"
