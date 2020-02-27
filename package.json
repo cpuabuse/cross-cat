@@ -27,7 +27,10 @@
 		"url": "git+https://github.com/cpuabuse/cross-cat.git"
 	},
 	"keywords": [
-		"cat"
+		"cat",
+		"cli",
+		"concat",
+		"concatenate"
 	],
 	"author": "cpuabuse.com",
 	"license": "ISC",
