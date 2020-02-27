@@ -22,7 +22,7 @@ Cross-platform cat command.
 
 ## About
 
-A JavaScript package, behaving exactly as Linux `cat` command.
+A JavaScript package, behaving exactly as Linux [cat](https://www.gnu.org/software/coreutils/cat) command.
 Written in TypeScript natively.
 
 ## Prerequisites
