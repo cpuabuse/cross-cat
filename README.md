@@ -35,7 +35,7 @@ Written in TypeScript natively.
 npm install cross-cat --global
 ```
 
-### Usage
+## Usage
 
 ```bash
 cat <filename>
