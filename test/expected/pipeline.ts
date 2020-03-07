@@ -20,8 +20,7 @@ export const extendedCharacters: string = "M-^@M-^A";
 export const extendedHigher: string = "M-*M-+M-,";
 
 // All of the letters
-export const letters: string =
-	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+export const letters: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // Total anount of letters twice
 export const lettersCount: number = 52;
@@ -45,6 +44,12 @@ export const animals: string = `1 Dog
 
 2 Cat
 3 Snake`;
+
+// SqueezeBlank
+export const insects: string = `Grasshoper
+
+Praying Mantis
+`;
 
 /**
  * Expected value for test of `processTabs` function.

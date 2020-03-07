@@ -31,14 +31,21 @@ export const emptyString: string = "";
 export const extendedHigher: string = "ª«¬";
 
 // All of the letters, lower case and upper case
-export const letters: string =
-	"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+export const letters: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // Line feed, new line
 export const lineFeedCharacter: string = "\n";
 
 // Numbers
 export const numbers: string = "0123456789";
+
+// SqueezeBlank
+export const insects: string = `Grasshoper
+
+
+
+Praying Mantis
+`;
 
 /**
  * TSV string to test `processTabs` function.
