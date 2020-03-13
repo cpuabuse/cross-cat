@@ -22,8 +22,9 @@ Cross-platform cat command.
 
 ## About
 
-A JavaScript package, behaving exactly as Linux [cat](https://www.gnu.org/software/coreutils/cat) command.
+A JavaScript package, behaving exactly as Linux [cat](https://www.gnu.org/software/coreutils/cat) command, supporting all the options such as line numbering.
 Written in TypeScript natively.
+
 
 ## Prerequisites
 
@@ -46,3 +47,11 @@ cat <filename>
 ```bash
 cat my_awesome_file.txt
 ```
+
+## Advanced usage
+
+Command | Explanation
+--- | ---
+`cross-cat <filename>` | For example, in case of PowerShell, ensure that this module is run instead of `cat` built-in alias to `Get-Content`
+`npx cross-cat <filename>` | To run without installation, although npm information would be displayed as well
+`cat --help` | To get all the available options
