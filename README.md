@@ -9,6 +9,10 @@
 [![Codacy coverage](https://img.shields.io/codacy/coverage/c77a1061cb3446f6b9762c811b76341c)](https://app.codacy.com/gh/cpuabuse/cross-cat)
 [![Codacy grade](https://img.shields.io/codacy/grade/c77a1061cb3446f6b9762c811b76341c)](https://app.codacy.com/gh/cpuabuse/cross-cat)
 
+**Github**
+
+[![Documentation](https://img.shields.io/badge/docs-gh--pages-informational)](https://cpuabuse.github.io/cross-cat/)
+
 **NPM**
 
 [![npm](https://img.shields.io/npm/v/cross-cat)](https://www.npmjs.com/package/cross-cat)
