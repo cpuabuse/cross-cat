@@ -36,7 +36,7 @@ git checkout $PagesBranch; if (-not $?) { throw }
 Pop-Location
 
 # Remove all the files in case there is inconsistency; Force to remove potential hidden files
-Get-ChildItem -Path $DocsPath -Exclude $GitDirectory | Remove-Item -Recurse -Force
+Get-ChildItem -Path $DocsPath -Exclude $GitDirectory -Force | Remove-Item -Recurse -Force
 
 # Create docs
 npm run build:docs; if (-not $?) { throw }
