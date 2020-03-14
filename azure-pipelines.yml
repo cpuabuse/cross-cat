@@ -82,6 +82,21 @@ stages:
                   inputs: 
                     codeCoverageTool: Cobertura
                     summaryFileLocation: 'coverage/cobertura-coverage.xml'
+      - deployment: docs_github
+        environment: docs
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSpec: 13.x
+              - checkout: self
+              - pwsh: script/pipeline/Deploy-Docs.ps1
+                env:
+                  GITHUB_PAT: $(GithubPat)
       - deployment: test_azure_pipelines
         environment: test
         pool:
