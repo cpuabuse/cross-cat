@@ -83,6 +83,7 @@ stages:
                     codeCoverageTool: Cobertura
                     summaryFileLocation: 'coverage/cobertura-coverage.xml'
       - deployment: docs_github
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         environment: docs
         pool:
           vmImage: ubuntu-latest
