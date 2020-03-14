@@ -8,7 +8,7 @@
 [ValidateNotNullOrEmpty()][String]$CommitMessage = "Change: Documentation"
 [ValidateNotNullOrEmpty()][String]$DocsPath = "docs"
 [ValidateNotNullOrEmpty()][String]$GitDirectory = ".git"
-[ValidateNotNullOrEmpty()][String]$JekyllPath = Join-Path -Path "build" -ChildPath "docs" ".nojekyll"
+[ValidateNotNullOrEmpty()][String]$JekyllPath = Join-Path -Path "docs" -ChildPath ".nojekyll"
 [ValidateNotNullOrEmpty()][String]$PagesBranch = "gh-pages"
 [ValidateNotNullOrEmpty()][String]$RepoPullURL = "https://github.com/cpuabuse/cross-cat"
 [ValidateNotNullOrEmpty()][String]$RepoPushURL = "https://$($env:GITHUB_PAT)@github.com/cpuabuse/cross-cat"
