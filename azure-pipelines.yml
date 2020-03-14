@@ -48,7 +48,7 @@ stages:
               versionSpec: $(node_version)
           - pwsh: script/pipeline/Test-Node.ps1
   - stage: deploy
-    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/dev'))
+    condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/dev'))
     jobs:
       - deployment: coverage_codacy
         environment: coverage
