@@ -5,10 +5,12 @@
 
 # Set vars
 [ValidateNotNullOrEmpty()][String]$BuildPath = Join-Path -Path "build" -ChildPath "docs"
-[ValidateNotNullOrEmpty()][String]$CommitMessage = "Change: Documentation"
+[ValidateNotNullOrEmpty()][String]$CommitMessage = "Publish: Documentation"
 [ValidateNotNullOrEmpty()][String]$DocsPath = "docs"
 [ValidateNotNullOrEmpty()][String]$GitDirectory = ".git"
+[ValidateNotNullOrEmpty()][String]$Here = "."
 [ValidateNotNullOrEmpty()][String]$JekyllPath = Join-Path -Path "docs" -ChildPath ".nojekyll"
+[ValidateNotNullOrEmpty()][String]$MasterBranch = "master"
 [ValidateNotNullOrEmpty()][String]$PagesBranch = "gh-pages"
 [ValidateNotNullOrEmpty()][String]$RepoPullURL = "https://github.com/cpuabuse/cross-cat"
 [ValidateNotNullOrEmpty()][String]$RepoPushURL = "https://$($env:GITHUB_PAT)@github.com/cpuabuse/cross-cat"
@@ -27,13 +29,14 @@ git init; if (-not $?) { throw }
 git config user.name $UserName; if (-not $?) { throw }
 git config user.email $UserEmail; if (-not $?) { throw }
 git remote add origin $RepoPullURL; if (-not $?) { throw }
-git fetch
-git checkout $PagesBranch
-git reset --hard HEAD^; if (-not $?) { throw }
+git fetch; if (-not $?) { throw }
+git checkout $MasterBranch; if (-not $?) { throw }
+git branch $PagesBranch; if (-not $?) { throw }
+git checkout $PagesBranch; if (-not $?) { throw }
 Pop-Location
 
-# Remove all the files in case there is inconsistency
-Get-ChildItem -Path $DocsPath -Exclude $GitDirectory | Remove-Item -Recurse
+# Remove all the files in case there is inconsistency; Force to remove potential hidden files
+Get-ChildItem -Path $DocsPath -Exclude $GitDirectory | Remove-Item -Recurse -Force
 
 # Create docs
 npm run build:docs; if (-not $?) { throw }
@@ -41,12 +44,12 @@ npm run build:docs; if (-not $?) { throw }
 # Copy docs
 Get-ChildItem -Path $BuildPath | Copy-Item -Destination $DocsPath -Recurse
 
-# Fix jekyll
-New-Item $JekyllPath -type file
+# Fix jekyll; Value seems to be required
+New-Item $JekyllPath -type "File" -Value ""
 
 # Git
 Push-Location -Path $DocsPath
-git add *; if (-not $?) { throw }
+git add $Here; if (-not $?) { throw }
 git commit --message $CommitMessage; if (-not $?) { throw }
 git push --force $RepoPushURL; if (-not $?) { throw }
 Pop-Location
