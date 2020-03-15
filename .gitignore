@@ -1,4 +1,4 @@
-build
+/build
 docs
 *.d.ts
 coverage
