@@ -6,9 +6,9 @@
 	Description: Deploys to GitHub pages
 #>
 
-<#######################################################################################################################
+<#
 	Initialize
-#######################################################################################################################>
+#>
 
 # Start-Pipeline
 . $(Join-Path -Path $PSScriptRoot -ChildPath "common" "Start-Pipeline.ps1")
@@ -30,9 +30,9 @@
 # Install-Dependencies
 & $Paths.InstallDependencies
 
-<#######################################################################################################################
+<#
 	Prepare repository
-#######################################################################################################################>
+#>
 
 # Create directory
 if (Test-Path -Path $RepoPath) {
@@ -40,7 +40,6 @@ if (Test-Path -Path $RepoPath) {
 	Remove-Item $RepoPath -Recurse -Force
 }
 New-Item -ItemType "Directory" -Path $RepoPath
-
 
 # Go to repo
 Push-Location -Path $RepoPath
@@ -65,12 +64,12 @@ Get-ChildItem -Path $Here -Exclude $GitDirectory -Force | Remove-Item -Recurse -
 # Go back to root
 Pop-Location
 
-<#######################################################################################################################
+<#
 	Build
-#######################################################################################################################>
+#>
 
 # Empty build directory; Force to remove potential hidden files
-if (!(Test-Path -Path $BuildPath)) {
+if ((Test-Path -Path $BuildPath)) {
 	Get-ChildItem -Path $BuildPath -Exclude $GitDirectory -Force | Remove-Item -Recurse -Force
 }
 
@@ -83,12 +82,12 @@ Get-ChildItem -Path $BuildPath | Copy-Item -Destination $RepoPath -Recurse
 # Fix jekyll; Value seems to be required
 New-Item $JekyllPath -type "File" -Value ""
 
-<#######################################################################################################################
+<#
 	Push
-#######################################################################################################################>
+#>
 
 # Git
-Push-Location -Path $DocsPath
+Push-Location -Path $RepoPath
 git add $Here; if (-not $?) { throw }
 git commit --message $CommitMessage; if (-not $?) { throw }
 git push --force $RepoPushURL; if (-not $?) { throw }
