@@ -10,6 +10,7 @@
 [![NPM](https://img.shields.io/npm/v/cross-cat?logo=npm)](https://www.npmjs.com/package/cross-cat)
 [![Minified size](https://img.shields.io/bundlephobia/min/cross-cat?logo=npm)](https://www.npmjs.com/package/cross-cat)
 [![Style](https://img.shields.io/badge/style-prettier-informational?logo=prettier)](ttps://prettier.io)
+[![Chat](https://img.shields.io/badge/chat-slack-informational?logo=slack)](https://join.slack.com/t/cpuabuse/shared_invite/enQtNjYzMjQ4NjY1MTUzLTZjMTY1M2NiYmZkNzBjMzI0YTQ4OGVjZDA1ODJkNjFiNDU1NDQwYjViMjBjODA1Y2Y4ZjNiYmUzODA2YWI3NDM)
 [![commander](https://img.shields.io/npm/dependency-version/cross-cat/commander?logo=npm)](https://www.npmjs.com/package/commander)
 [![get-stdin](https://img.shields.io/npm/dependency-version/cross-cat/get-stdin?logo=npm)](https://www.npmjs.com/package/get-stdin)
 
