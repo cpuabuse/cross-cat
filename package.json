@@ -23,10 +23,7 @@
 		"test:js:mocha": "npm run build && mocha",
 		"test:ts:mocha": "mocha --require ts-node/register test/test.ts"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/cpuabuse/cross-cat.git"
-	},
+	"repository": "github:cpuabuse/cross-cat",
 	"keywords": [
 		"cat",
 		"cli",
@@ -38,7 +35,7 @@
 	"bugs": {
 		"url": "https://github.com/cpuabuse/cross-cat/issues"
 	},
-	"homepage": "https://github.com/cpuabuse/cross-cat#readme",
+	"homepage": "https://cpuabuse.github.io/cross-cat",
 	"dependencies": {
 		"commander": "^4.1.1",
 		"get-stdin": "^7.0.0"
