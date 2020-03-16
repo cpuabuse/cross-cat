@@ -1,24 +1,17 @@
-**Azure Pipelines**
-
-[![Azure DevOps builds](https://img.shields.io/azure-devops/build/cpuabuse/214fb8e6-083e-4136-b3fb-a012127b24f0/1)](https://dev.azure.com/cpuabuse/cross-cat)
-[![Azure DevOps tests](https://img.shields.io/azure-devops/tests/cpuabuse/214fb8e6-083e-4136-b3fb-a012127b24f0/1)](https://dev.azure.com/cpuabuse/cross-cat)
-[![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/cpuabuse/214fb8e6-083e-4136-b3fb-a012127b24f0/1)](https://dev.azure.com/cpuabuse/cross-cat)
-
-**Codacy**
-
-[![Codacy coverage](https://img.shields.io/codacy/coverage/c77a1061cb3446f6b9762c811b76341c)](https://app.codacy.com/gh/cpuabuse/cross-cat)
-[![Codacy grade](https://img.shields.io/codacy/grade/c77a1061cb3446f6b9762c811b76341c)](https://app.codacy.com/gh/cpuabuse/cross-cat)
-
-**Github**
-
-[![Documentation](https://img.shields.io/badge/docs-gh--pages-informational)](https://cpuabuse.github.io/cross-cat/)
-
-**NPM**
-
-[![npm](https://img.shields.io/npm/v/cross-cat)](https://www.npmjs.com/package/cross-cat)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/cross-cat)](https://www.npmjs.com/package/cross-cat)
-[![node](https://img.shields.io/node/v/cross-cat)](https://www.npmjs.com/package/cross-cat)
-[![npm](https://img.shields.io/npm/dw/cross-cat)](https://www.npmjs.com/package/cross-cat)
+[![Build](https://img.shields.io/azure-devops/build/cpuabuse/214fb8e6-083e-4136-b3fb-a012127b24f0/1?logo=azure-pipelines)](https://dev.azure.com/cpuabuse/cross-cat)
+[![Tests](https://img.shields.io/azure-devops/tests/cpuabuse/214fb8e6-083e-4136-b3fb-a012127b24f0/1?logo=azure-pipelines)](https://dev.azure.com/cpuabuse/cross-cat)
+[![Code quality](https://img.shields.io/codacy/grade/c77a1061cb3446f6b9762c811b76341c?logo=codacy)](https://app.codacy.com/gh/cpuabuse/cross-cat)
+[![Coverage](https://img.shields.io/codacy/coverage/c77a1061cb3446f6b9762c811b76341c?logo=codacy)](https://app.codacy.com/gh/cpuabuse/cross-cat)
+[![Release date](https://img.shields.io/github/release-date/cpuabuse/cross-cat?logo=github)](https://github.com/cpuabuse/cross-cat/releases)
+[![Docs](https://img.shields.io/badge/docs-gh--pages-informationa?logo=github)](https://cpuabuse.github.io/cross-cat)
+[![License](https://img.shields.io/github/license/cpuabuse/cross-cat?logo=github)](https://opensource.org/licenses/ISC)
+[![Testing](https://img.shields.io/badge/testing-mocha-informational?logo=mocha)](https://mochajs.org)
+[![Node](https://img.shields.io/node/v/cross-cat?logo=node.js)](https://www.npmjs.com/package/cross-cat)
+[![NPM](https://img.shields.io/npm/v/cross-cat?logo=npm)](https://www.npmjs.com/package/cross-cat)
+[![Minified size](https://img.shields.io/bundlephobia/min/cross-cat?logo=npm)](https://www.npmjs.com/package/cross-cat)
+[![Style](https://img.shields.io/badge/style-prettier-informational?logo=prettier)](ttps://prettier.io)
+[![commander](https://img.shields.io/npm/dependency-version/cross-cat/commander?logo=npm)](https://www.npmjs.com/package/commander)
+[![get-stdin](https://img.shields.io/npm/dependency-version/cross-cat/get-stdin?logo=npm)](https://www.npmjs.com/package/get-stdin)
 
 # cross-cat
 
