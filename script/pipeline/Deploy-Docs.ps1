@@ -18,10 +18,10 @@
 [ValidateNotNullOrEmpty()][String]$CommitMessage = "Publish: Documentation"
 [ValidateNotNullOrEmpty()][String]$GitDirectory = ".git"
 [ValidateNotNullOrEmpty()][String]$Here = "."
-[ValidateNotNullOrEmpty()][String]$JekyllPath = Join-Path -Path $BuildPath -ChildPath ".nojekyll"
 [ValidateNotNullOrEmpty()][String]$MasterBranch = "master"
 [ValidateNotNullOrEmpty()][String]$PagesBranch = "gh-pages"
-[ValidateNotNullOrEmpty()][String]$RepoPath = Join-Path -Path "build" -ChildPath "docs"
+[ValidateNotNullOrEmpty()][String]$RepoPath = Join-Path -Path "build" -ChildPath "docs"; `
+	[ValidateNotNullOrEmpty()][String]$JekyllPath = Join-Path -Path $RepoPath -ChildPath ".nojekyll"
 [ValidateNotNullOrEmpty()][String]$RepoPullURL = "https://github.com/cpuabuse/cross-cat"
 [ValidateNotNullOrEmpty()][String]$RepoPushURL = "https://$($env:GITHUB_PAT)@github.com/cpuabuse/cross-cat"
 [ValidateNotNullOrEmpty()][String]$UserName = "El Gato Bot"
