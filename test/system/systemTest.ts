@@ -90,5 +90,3 @@ export function sytemTestCat(): void {
 		});
 	});
 }
-
-sytemTestCat();
