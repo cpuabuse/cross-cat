@@ -80,7 +80,7 @@ npm run build:docs; if (-not $?) { throw }
 Get-ChildItem -Path $BuildPath | Copy-Item -Destination $RepoPath -Recurse
 
 # Fix jekyll; Value seems to be required
-New-Item $JekyllPath -type "File" -Value ""
+New-Item -Path $JekyllPath -Type "File" -Value ""
 
 <#
 	Push
