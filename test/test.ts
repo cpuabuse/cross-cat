@@ -7,11 +7,11 @@
  * Performs tests.
  */
 
-import { sytemTestCat } from "./system/systemTest";
+import { sytemTest } from "./system/test";
 import { unitTest } from "./unit/test";
 
 // Unit test
 unitTest();
 
 // System test
-sytemTestCat();
+sytemTest();
