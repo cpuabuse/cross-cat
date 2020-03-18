@@ -48,6 +48,7 @@ stages:
               versionSpec: $(node_version)
           - pwsh: script/pipeline/Test-Node.ps1
   - stage: deploy
+    dependsOn: test
     condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/dev'))
     jobs:
       - deployment: coverage_codacy
@@ -82,22 +83,6 @@ stages:
                   inputs: 
                     codeCoverageTool: Cobertura
                     summaryFileLocation: 'coverage/cobertura-coverage.xml'
-      - deployment: docs_github
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-        environment: docs
-        pool:
-          vmImage: ubuntu-latest
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-              - task: NodeTool@0
-                inputs:
-                  versionSpec: 13.x
-              - checkout: self
-              - pwsh: script/pipeline/Deploy-Docs.ps1
-                env:
-                  GITHUB_PAT: $(GithubPat)
       - deployment: test_azure_pipelines
         environment: test
         pool:
@@ -115,6 +100,25 @@ stages:
                   inputs:
                     testRunner: JUnit
                     testResultsFiles: 'test-results.xml'
+  - stage: publish
+    dependsOn: test
+    jobs:
+      - deployment: docs_github
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        environment: docs
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSpec: 13.x
+              - checkout: self
+              - pwsh: script/pipeline/Deploy-Docs.ps1
+                env:
+                  GITHUB_PAT: $(GithubPat)
       - deployment: npm_next
         environment: npm
         pool:
@@ -127,6 +131,8 @@ stages:
                 inputs:
                   versionSpec: 13.x
               - checkout: self
+                clean: true
               - pwsh: script/pipeline/Deploy-NPMNext.ps1
                 env:
+                  GITHUB_PAT: $(GithubPat)
                   NPM_TOKEN: $(NpmToken)

@@ -7,10 +7,27 @@
 [ValidateNotNullOrEmpty()][String]$Branch = "dev"
 [ValidateNotNullOrEmpty()][String]$NPMRCValue = "//registry.npmjs.org/:_authToken=$($env:NPM_TOKEN)"
 [ValidateNotNullOrEmpty()][String]$NPMRCPath = ".npmrc"
+[ValidateNotNullOrEmpty()][String]$PackageFilePath = "package.json"
+[ValidateNotNullOrEmpty()][String]$RepoPushURL = "https://$($env:GITHUB_PAT)@github.com/cpuabuse/cross-cat"
+[ValidateNotNullOrEmpty()][String]$UserName = "El Gato Bot"
+[ValidateNotNullOrEmpty()][String]$UserEmail = "60073838+elgatobot@users.noreply.github.com"
+[ValidateNotNullOrEmpty()][String]$Tag = "v0.0.1"
 
-# Patch and push
-npm version patch --no-git-tag-version --message "Release: Next v%s [ci skip]"; if (-not $?) { throw }
-git push origin "HEAD:$($Branch)"; if (-not $?) { throw }
+# Config git
+git config user.name $UserName; if (-not $?) { throw }
+git config user.email $UserEmail; if (-not $?) { throw }
+
+# Git checkout
+git checkout $Branch
+
+# Patch
+npm version patch --no-git-tag-version; if (-not $?) { throw }
+$Tag = "v$((Get-Content -Path $PackageFilePath | ConvertFrom-Json).version)"
+git commit --all --message "Release: Next $Tag" --message "[ci skip]"
+git tag $Tag
+
+# Push
+git push $RepoPushURL $Tag; if (-not $?) { throw }
 
 # Replace NPM config
 Add-Content -Path $NPMRCPath -Value $NPMRCValue
