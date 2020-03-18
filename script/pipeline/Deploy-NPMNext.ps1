@@ -18,7 +18,7 @@ Add-Content -Path $NPMRCPath -Value $NPMRCValue
 npm publish --tag next; if (-not $?) { throw }
 
 # Remove config with token, just in case
-git reset HEAD --hard
+git reset HEAD --hard; if (-not $?) { throw }
 
 # Stop-Pipeline
 & $Paths.StopPipeline
