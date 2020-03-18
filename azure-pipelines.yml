@@ -115,3 +115,18 @@ stages:
                   inputs:
                     testRunner: JUnit
                     testResultsFiles: 'test-results.xml'
+      - deployment: npm_next
+        environment: npm
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSpec: 13.x
+              - checkout: self
+              - pwsh: script/pipeline/Deploy-NPMNext.ps1
+                env:
+                  NPM_TOKEN: $(NpmToken)
