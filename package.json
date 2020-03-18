@@ -21,7 +21,7 @@
 		"coverage:codacy": "npm run coverage:lcov && npx cross-cat coverage/lcov.info | codacy-coverage",
 		"test:js:junit": "npm run build && mocha test --reporter mocha-junit-reporter",
 		"test:js:mocha": "npm run build && mocha",
-		"test:ts:mocha": "mocha --require ts-node/register test/test.ts"
+		"test:ts:mocha": "npm run build && mocha --require ts-node/register test/test.ts"
 	},
 	"repository": "github:cpuabuse/cross-cat",
 	"keywords": [
