@@ -10,9 +10,9 @@
 import { strictEqual } from "assert";
 import { processNumber } from "../../../src/pipeline/number";
 //@ts-ignore
-import { food as input } from "../../input/pipeline.js";
+import { food as input } from "../../input/pipeline";
 //@ts-ignore
-import { food as expected } from "../../expected/pipeline.js";
+import { food as expected } from "../../expected/pipeline";
 
 // Test for multiple lines
 export function testNumber(): void {
