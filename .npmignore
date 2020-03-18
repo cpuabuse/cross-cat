@@ -1,6 +1,8 @@
 azure-pipelines.yml
+build
 coverage
 .eslintrc.yml
+.gitattributes
 .gitignore
 .gitpod.dockerfile
 .gitpod.yml
@@ -13,3 +15,4 @@ script
 test
 test-results.xml
 tsconfig.json
+.vscode

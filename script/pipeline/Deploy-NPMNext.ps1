@@ -8,7 +8,7 @@
 [ValidateNotNullOrEmpty()][String]$NPMRCPath = ".npmrc"
 
 # Patch and push
-npm version patch --message "Release: Next v%s [ci skip]"; if (-not $?) { throw }
+npm version patch --no-git-tag-version --message "Release: Next v%s [ci skip]"; if (-not $?) { throw }
 git push; if (-not $?) { throw }
 
 # Replace NPM config
@@ -18,7 +18,7 @@ Add-Content -Path $NPMRCPath -Value $NPMRCValue
 npm publish --tag next; if (-not $?) { throw }
 
 # Remove config with token, just in case
-Remove-Item -Path $NPMRCPath
+git reset HEAD --hard
 
 # Stop-Pipeline
 & $Paths.StopPipeline
