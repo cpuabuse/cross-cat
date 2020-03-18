@@ -55,8 +55,7 @@ git config user.email $UserEmail; if (-not $?) { throw }
 git remote add origin $RepoPullURL; if (-not $?) { throw }
 git fetch; if (-not $?) { throw }
 git checkout $MasterBranch; if (-not $?) { throw }
-git branch $PagesBranch; if (-not $?) { throw }
-git checkout $PagesBranch; if (-not $?) { throw }
+git checkout -b $PagesBranch; if (-not $?) { throw }
 
 # Remove all the files in repository; Force to remove potential hidden files
 Get-ChildItem -Path $Here -Exclude $GitDirectory -Force | Remove-Item -Recurse -Force
@@ -88,8 +87,7 @@ New-Item -Path $JekyllPath -Type "File" -Value ""
 
 # Git
 Push-Location -Path $RepoPath
-git add $Here; if (-not $?) { throw }
-git commit --message $CommitMessage; if (-not $?) { throw }
+git commit --all --message $CommitMessage; if (-not $?) { throw }
 git push --force $RepoPushURL; if (-not $?) { throw }
 Pop-Location
 
