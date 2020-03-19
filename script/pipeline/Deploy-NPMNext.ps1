@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-# Deploys Codacy coverage.
+# Publish npm
 
 # Start-Pipeline
 . $(Join-Path -Path $PSScriptRoot -ChildPath "common" "Start-Pipeline.ps1")
@@ -12,7 +12,7 @@
 [ValidateNotNullOrEmpty()][String]$RepoPushURL = "https://$($env:GITHUB_PAT)@github.com/cpuabuse/cross-cat"
 [ValidateNotNullOrEmpty()][String]$UserName = "El Gato Bot"
 [ValidateNotNullOrEmpty()][String]$UserEmail = "60073838+elgatobot@users.noreply.github.com"
-[ValidateNotNullOrEmpty()][String]$Version = "v0.0.1"; `
+[ValidateNotNullOrEmpty()][String]$Version = (Get-Content -Path $PackageFilePath | ConvertFrom-Json).version; `
 	[ValidateNotNullOrEmpty()][String]$Tag = "v$Version"
 
 # Config git
