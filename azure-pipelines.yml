@@ -48,8 +48,8 @@ stages:
               versionSpec: $(node_version)
           - pwsh: script/pipeline/Test-Node.ps1
   - stage: deploy
-    dependsOn: test
     condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/dev'))
+    dependsOn: test
     jobs:
       - deployment: coverage_codacy
         environment: codacy
@@ -101,6 +101,7 @@ stages:
                     testRunner: JUnit
                     testResultsFiles: 'test-results.xml'
   - stage: publish
+    condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/dev', 'refs/heads/master'))
     dependsOn: test
     jobs:
       - deployment: docs_github
@@ -170,6 +171,7 @@ stages:
                 clean: true
               - pwsh: script/pipeline/Deploy-GithubRelease.ps1
   - stage: notify
+    condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/dev', 'refs/heads/master'))
     dependsOn: publish
     jobs:
       - deployment: send_twitter
