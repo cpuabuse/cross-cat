@@ -87,7 +87,8 @@ New-Item -Path $JekyllPath -Type "File" -Value ""
 
 # Git
 Push-Location -Path $RepoPath
-git commit --all --message $CommitMessage; if (-not $?) { throw }
+git add --all
+git commit --message $CommitMessage; if (-not $?) { throw }
 git push --force $RepoPushURL; if (-not $?) { throw }
 Pop-Location
 
