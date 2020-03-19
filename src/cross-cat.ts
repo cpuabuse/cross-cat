@@ -56,11 +56,11 @@ interface ParsedArgs extends Flags {
 	stdin: string;
 }
 
+// The variable is too big to have a copy, thus we override no-param-reassign
 /**
  * A function performing file processing, mocking behavoir of linux cat function.
  * @param filename File name
  */
-// The variable is too big to have a copy, thus we override no-param-reassign
 function cat(text: string, flags: Flags): void {
 	// Process squeeze blank lines
 	if (flags.squeezeBlankFlag) {
@@ -103,6 +103,9 @@ function log(text: string): void {
 	process.stdout.write(text);
 }
 
+/**
+ * Prints error to console.
+ */
 function error(text: string): void {
 	// eslint-disable-next-line no-console
 	process.stderr.write(`Error: ${text}`);
@@ -112,7 +115,7 @@ function error(text: string): void {
  * Process the args.
  */
 async function parseArgs(): Promise<ParsedArgs> {
-	let program = new Command();
+	let program: Command = new Command();
 
 	// Program metadeta
 	program.version("0.0.1");
