@@ -11,6 +11,9 @@
 [ValidateNotNullOrEmpty()][String]$Version = (Get-Content -Path $PackageFilePath | ConvertFrom-Json).version; `
 	[ValidateNotNullOrEmpty()][String]$Tag = "v$Version"
 
+# Replace NPM config
+Add-Content -Path $NPMRCPath -Value $NPMRCValue
+
 # Set current version as latest
 npm dist-tag add "$($PackageName)@$($Version)" latest
 

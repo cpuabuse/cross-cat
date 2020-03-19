@@ -1,6 +1,7 @@
+CHANGELOG.md
 /build
-*.d.ts
 coverage
+*.d.ts
 *.js
 *.js.map
 node_modules
