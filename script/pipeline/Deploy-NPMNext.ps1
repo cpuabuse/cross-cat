@@ -27,7 +27,7 @@ git commit --all --message "Release: Next $Tag" --message "[ci skip]"
 git tag $Tag
 
 # Push
-git push $RepoPushURL $Tag; if (-not $?) { throw }
+git push $RepoPushURL; if (-not $?) { throw }
 
 # Replace NPM config
 Add-Content -Path $NPMRCPath -Value $NPMRCValue
