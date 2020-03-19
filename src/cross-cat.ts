@@ -22,12 +22,12 @@
 
 import { Command } from "commander";
 import getStdin from "get-stdin";
-import { readFile } from "fs";
-import { processSqueezeBlank } from "./pipeline/squeeze-blank";
-import { processTabs } from "./pipeline/show-tabs";
-import { processNumberNonBlank } from "./pipeline/number-nonblank";
 import { processEnds } from "./pipeline/show-ends";
 import { processNumber } from "./pipeline/number";
+import { processNumberNonBlank } from "./pipeline/number-nonblank";
+import { processSqueezeBlank } from "./pipeline/squeeze-blank";
+import { processTabs } from "./pipeline/show-tabs";
+import { readFile } from "fs";
 
 /**
  * Literal empty string.
