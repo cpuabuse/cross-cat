@@ -23,8 +23,7 @@ git config user.name $UserName; if (-not $?) { throw }
 git config user.email $UserEmail; if (-not $?) { throw }
 
 # Publish release
-go get github.com/aktau/github-release
-github-release release --user $GithubOrganization --repo $GithubRepository --tag $Tag --name $Tag --description $Message; if (-not $?) { throw }
+go run github.com/aktau/github-release release --user $GithubOrganization --repo $GithubRepository --tag $Tag --name $Tag --description $Message; if (-not $?) { throw }
 
 # Retag
 git tag release --force; if (-not $?) { throw }

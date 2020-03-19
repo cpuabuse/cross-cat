@@ -34,6 +34,12 @@ git tag $Tag --message $Message; if (-not $?) { throw }
 git push $RepoPushURL; if (-not $?) { throw }
 git push $RepoPushURL $Tag; if (-not $?) { throw }
 
+# Install-Dependencies
+& $Paths.InstallDependencies
+
+# Run build
+npm run build; if (-not $?) { throw }
+
 # Replace NPM config
 Add-Content -Path $NPMRCPath -Value $NPMRCValue
 
