@@ -52,7 +52,7 @@ stages:
     condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/master', 'refs/heads/dev'))
     jobs:
       - deployment: coverage_codacy
-        environment: coverage
+        environment: codacy
         pool:
           vmImage: ubuntu-latest
         strategy:
@@ -67,7 +67,7 @@ stages:
                 env:
                   CODACY_PROJECT_TOKEN: $(CodacyProjectToken)
       - deployment: coverage_azure_pipelines
-        environment: coverage
+        environment: azure_pipelines
         pool:
           vmImage: ubuntu-latest
         strategy:
@@ -84,7 +84,7 @@ stages:
                     codeCoverageTool: Cobertura
                     summaryFileLocation: 'coverage/cobertura-coverage.xml'
       - deployment: test_azure_pipelines
-        environment: test
+        environment: azure_pipelines
         pool:
           vmImage: ubuntu-latest
         strategy:
@@ -105,7 +105,7 @@ stages:
     jobs:
       - deployment: docs_github
         condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-        environment: docs
+        environment: github
         pool:
           vmImage: ubuntu-latest
         strategy:
@@ -119,7 +119,8 @@ stages:
               - pwsh: script/pipeline/Deploy-Docs.ps1
                 env:
                   GITHUB_PAT: $(GithubPat)
-      - deployment: npm_next
+      - deployment: release_npm
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
         environment: npm
         pool:
           vmImage: ubuntu-latest
@@ -136,3 +137,57 @@ stages:
                 env:
                   GITHUB_PAT: $(GithubPat)
                   NPM_TOKEN: $(NpmToken)
+      - deployment: tag_npm
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        environment: npm
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSpec: 13.x
+              - checkout: self
+                clean: true
+              - pwsh: script/pipeline/Deploy-NPMLatest.ps1
+                env:
+                  NPM_TOKEN: $(NpmToken)
+      - deployment: release_github
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        environment: github
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSpec: 13.x
+              - checkout: self
+                clean: true
+              - pwsh: script/pipeline/Deploy-GithubRelease.ps1
+  - stage: notify
+    dependsOn: publish
+    jobs:
+      - deployment: send_twitter
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        environment: twitter
+        pool:
+          vmImage: ubuntu-latest
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: NodeTool@0
+                inputs:
+                  versionSpec: 13.x
+              - checkout: self
+              - pwsh: script/pipeline/Send-Twitter.ps1
+                env:
+                  TWITTER_API_KEY: $(TwitterApiKey)
+                  TWITTER_API_SECRET_KEY: $(TwitterApiSecretKey)
+                  TWITTER_ACCESS_TOKEN: $(TwitterAccessToken)
+                  TWITTER_ACCESS_TOKEN_SECRET: $(TwitterAccessTokenSecret)
