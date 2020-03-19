@@ -24,7 +24,7 @@
 	#npm release: https://www.npmjs.com/package/cross-cat"
 
 # Tweet
-npx tweet --message $Message
+# npx tweet --message $Message
 
 # Stop-Pipeline
 & $Paths.StopPipeline
