@@ -170,6 +170,8 @@ stages:
               - checkout: self
                 clean: true
               - pwsh: script/pipeline/Deploy-GithubRelease.ps1
+                env:
+                  GITHUB_TOKEN: $(GithubPat)
   - stage: notify
     condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/dev', 'refs/heads/master'))
     dependsOn: publish
