@@ -35,13 +35,4 @@ git config user.name --unset
 git config user.email --unset
 
 # Stop-Pipeline
-& $Paths.StopPipeline --unset
-
-# Stop-Pipeline
-& $Paths.StopPipeline --unset
-
-# Stop-Pipeline
-& $Paths.StopPipeline --unset
-
-# Stop-Pipeline
 & $Paths.StopPipeline
