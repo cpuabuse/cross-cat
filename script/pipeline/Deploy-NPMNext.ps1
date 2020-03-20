@@ -37,7 +37,7 @@ if ($Patch) {
 	git checkout $Branch
 
 	# Patch, commit and tag
-	npm version patch --no-git-tag-version; if (-not $?) { throw }
+	npm version $PatchLevel --no-git-tag-version; if (-not $?) { throw }
 	$Version = (Get-Content -Path $PackageFilePath | ConvertFrom-Json).version
 	$Tag = "v$Version"
 	$Message = "Release: Next $Tag"
