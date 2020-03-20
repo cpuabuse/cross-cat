@@ -9,9 +9,9 @@
 import { ChildProcessWithoutNullStreams, spawn } from "child_process";
 import { ok, strictEqual } from "assert";
 import { dinosaursShowTabs as expectedDinosaursShowTabs } from "../expected/index";
+import { fruitsShowEnds as expectedFruitShowEnds } from "../expected/index";
 import { fruits as expectedFruits } from "../expected/index";
 import { fruitsNumber as expectedFruitsNumber } from "../expected/index";
-import { fruitsShowEnds as expectedFruitShowEnds } from "../expected/index";
 import { vegetablesNumberNonBlank as expectedVegetablesNumberNonBlank } from "../expected/index";
 
 /**
