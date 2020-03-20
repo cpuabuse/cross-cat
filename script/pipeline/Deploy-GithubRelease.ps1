@@ -23,11 +23,25 @@ git config user.name $UserName; if (-not $?) { throw }
 git config user.email $UserEmail; if (-not $?) { throw }
 
 # Publish release
+go get github.com/aktau/github-release
 go run github.com/aktau/github-release release --user $GithubOrganization --repo $GithubRepository --tag $Tag --name $Tag --description $Message; if (-not $?) { throw }
 
 # Retag
 git tag release --force; if (-not $?) { throw }
 git push $RepoPushURL release --force; if (-not $?) { throw }
+
+# Unset config
+git config user.name --unset
+git config user.email --unset
+
+# Stop-Pipeline
+& $Paths.StopPipeline --unset
+
+# Stop-Pipeline
+& $Paths.StopPipeline --unset
+
+# Stop-Pipeline
+& $Paths.StopPipeline --unset
 
 # Stop-Pipeline
 & $Paths.StopPipeline

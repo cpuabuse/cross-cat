@@ -24,6 +24,7 @@
 	[ValidateNotNullOrEmpty()][String]$JekyllPath = Join-Path -Path $RepoPath -ChildPath ".nojekyll"
 [ValidateNotNullOrEmpty()][String]$RepoPullURL = "https://github.com/cpuabuse/cross-cat"
 [ValidateNotNullOrEmpty()][String]$RepoPushURL = "https://$($env:GITHUB_PAT)@github.com/cpuabuse/cross-cat"
+[ValidateNotNullOrEmpty()][String]$SkipCi = "[ci skip]"
 [ValidateNotNullOrEmpty()][String]$UserName = "El Gato Bot"
 [ValidateNotNullOrEmpty()][String]$UserEmail = "60073838+elgatobot@users.noreply.github.com"
 
@@ -88,7 +89,7 @@ New-Item -Path $JekyllPath -Type "File" -Value ""
 # Git
 Push-Location -Path $RepoPath
 git add --all
-git commit --message $CommitMessage; if (-not $?) { throw }
+git commit --message $CommitMessage --message $SkipCi; if (-not $?) { throw }
 git push --force $RepoPushURL; if (-not $?) { throw }
 Pop-Location
 

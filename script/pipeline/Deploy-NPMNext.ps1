@@ -10,6 +10,7 @@
 [ValidateNotNullOrEmpty()][String]$NPMRCPath = ".npmrc"
 [ValidateNotNullOrEmpty()][String]$PackageFilePath = "package.json"
 [ValidateNotNullOrEmpty()][String]$RepoPushURL = "https://$($env:GITHUB_PAT)@github.com/cpuabuse/cross-cat"
+[ValidateNotNullOrEmpty()][String]$SkipCi = "[ci skip]"
 [ValidateNotNullOrEmpty()][String]$UserName = "El Gato Bot"
 [ValidateNotNullOrEmpty()][String]$UserEmail = "60073838+elgatobot@users.noreply.github.com"
 [ValidateNotNullOrEmpty()][String]$Version = (Get-Content -Path $PackageFilePath | ConvertFrom-Json).version; `
@@ -27,7 +28,7 @@ npm version patch --no-git-tag-version; if (-not $?) { throw }
 $Version = (Get-Content -Path $PackageFilePath | ConvertFrom-Json).version
 $Tag = "v$Version"
 $Message = "Release: Next $Tag"
-git commit --all --message $Message --message "[ci skip]"; if (-not $?) { throw }
+git commit --all --message $Message --message $SkipCi; if (-not $?) { throw }
 git tag $Tag --message $Message; if (-not $?) { throw }
 
 # Push
