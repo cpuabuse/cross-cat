@@ -34,7 +34,7 @@ export function number(text: string, countBlank: boolean): string {
 	// Split the text into lines
 	let splitText: Array<string> = text.split("\n");
 
-	//
+	// Max number of digits that the line number can occupy
 	let maxNumberOfDigits: number;
 	if (countBlank) {
 		maxNumberOfDigits = splitText.length.toString().length;
