@@ -152,6 +152,9 @@ Examples:
 	program.option("-v, --show-nonprinting", "use ^ and M- notation, except for LFD and TAB");
 	program.parse(process.argv);
 
+	/**
+	 * Checks if the flag is set to true.
+	 */
 	function checkFlag(flag: string): boolean {
 		if (Object.prototype.hasOwnProperty.call(program, flag)) {
 			if (program[flag] === true) {
