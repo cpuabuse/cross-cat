@@ -145,6 +145,7 @@ stages:
                 env:
                   GITHUB_PAT: $(GithubPat)
                   NPM_TOKEN: $(NpmToken)
+                  COMMIT_MESSAGE: $(Build.SourceVersionMessage)
       - deployment: tag_npm
         condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
         environment: npm
