@@ -3,6 +3,10 @@
 	cpuabuse.com
 */
 
+/**
+ * Processes nonblank.
+ */
+
 import { number } from "./auxiliary/number";
 
 /**

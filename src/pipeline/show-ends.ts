@@ -4,6 +4,10 @@
 */
 
 /**
+ * Processes ends of lines.
+ */
+
+/**
  * Put $ at the end of each line.
  * @param text Text to process
  */

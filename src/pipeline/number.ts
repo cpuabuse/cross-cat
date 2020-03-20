@@ -3,6 +3,10 @@
 	cpuabuse.com
 */
 
+/**
+ * Processes number.
+ */
+
 import { number } from "./auxiliary/number";
 
 /**
