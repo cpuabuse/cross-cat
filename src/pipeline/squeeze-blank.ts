@@ -4,18 +4,31 @@
 */
 
 /**
- * supress repeated empty output lines.
+ * Suppress repeated empty output lines.
  */
 
-const emptyString = "";
-const carriageReturn = "\r";
+/**
+ * Literally an empty string.
+ */
+const emptyString: string = "";
+
+/**
+ * Literally a carriage return.
+ */
+const carriageReturn: string = "\r";
 
 // Treat carriage return as empty
-let treatCarriageReturnAsNotEmpty = false;
+let treatCarriageReturnAsNotEmpty: boolean = false;
 
-// Eliminates repeating blank lines
+/**
+ * Eliminates repeating blank lines.
+ * @param text Text to process
+ */
 export function processSqueezeBlank(text: string): string {
-	// Verifies if we consider the string empty
+	/**
+	 * Verifies if we consider the string empty.
+	 * @param textToCheck Text to check
+	 */
 	function stringIsEmpty(textToCheck: string): boolean {
 		if (textToCheck === emptyString) {
 			return true;
@@ -38,13 +51,13 @@ export function processSqueezeBlank(text: string): string {
 	return lines.reduce(
 		function(aggregator, currentLine) {
 			// Determine empty strings
-			let currentLineIsEmpty = stringIsEmpty(currentLine);
+			let currentLineIsEmpty: boolean = stringIsEmpty(currentLine);
 
 			// Detect double blank lines
 			if (currentLineIsEmpty && aggregator.previousLineIsEmpty) {
 				return aggregator;
 			}
-			let result = {
+			let result: { previousLineIsEmpty: boolean; text: string } = {
 				previousLineIsEmpty: currentLineIsEmpty,
 				text: `${aggregator.text}\n${currentLine}`
 			};

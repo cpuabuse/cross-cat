@@ -4,14 +4,18 @@
 */
 
 /**
- * Adds numbers to the begining of the line
+ * Adds numbers to the begining of the line.
  */
 
-const emptyString = "";
-const space = " ";
-const tabulationSpace = " ";
-let treatCarriageReturnAsNotEmpty = false;
+const emptyString: string = "";
+const space: string = " ";
+const tabulationSpace: string = " ";
+let treatCarriageReturnAsNotEmpty: boolean = false;
 
+/**
+ * Determinate if the function is empty.
+ * @param text Text to check
+ */
 function textIsEmpty(text: string): boolean {
 	return (
 		text.length === 0 ||
@@ -21,11 +25,16 @@ function textIsEmpty(text: string): boolean {
 	);
 }
 
+/**
+ * Numbers the line.
+ * @param text Text to check
+ * @param countBlank Text to check
+ */
 export function number(text: string, countBlank: boolean): string {
 	// Split the text into lines
-	let splitText = text.split("\n");
+	let splitText: Array<string> = text.split("\n");
 
-	//
+	// Max number of digits that the line number can occupy
 	let maxNumberOfDigits: number;
 	if (countBlank) {
 		maxNumberOfDigits = splitText.length.toString().length;
@@ -78,7 +87,7 @@ export function number(text: string, countBlank: boolean): string {
 			// Generates spaces
 			if (result.previousNumberOfDigits !== displayNumber.toString().length) {
 				// Because the amount of spaces in initial variable is exactly how many spaces there are in the first line, it is safe to pop up until the last line, where spaces will become an empty string
-				let spacesArray = [...result.spaces];
+				let spacesArray: Array<string> = [...result.spaces];
 				spacesArray.pop();
 				result.spaces = spacesArray.join(emptyString);
 
@@ -94,9 +103,7 @@ export function number(text: string, countBlank: boolean): string {
 					result.text += "\n";
 				}
 			} else {
-				result.text += `\n${
-					result.spaces
-				}${displayNumber.toString()}${tabulationSpace}${lineText}`;
+				result.text += `\n${result.spaces}${displayNumber.toString()}${tabulationSpace}${lineText}`;
 			}
 			return result; // It is important to return result by reference, not to create new primitives
 		},
