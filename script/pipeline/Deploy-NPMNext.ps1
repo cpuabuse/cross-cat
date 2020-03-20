@@ -17,6 +17,9 @@
 [ValidateNotNullOrEmpty()][String]$Version = (Get-Content -Path $PackageFilePath | ConvertFrom-Json).version; `
 	[ValidateNotNullOrEmpty()][String]$Tag = "v$Version"
 
+# Debug
+Write-Host $env:COMMIT_MESSAGE
+
 # Set patch level
 if ($env:COMMIT_MESSAGE.Contains("[version minor]")) {
 	$PatchLevel = "minor"
