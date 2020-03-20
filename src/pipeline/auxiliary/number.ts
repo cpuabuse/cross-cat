@@ -4,7 +4,7 @@
 */
 
 /**
- * Adds numbers to the begining of the line
+ * Adds numbers to the begining of the line.
  */
 
 const emptyString: string = "";
@@ -14,7 +14,7 @@ let treatCarriageReturnAsNotEmpty: boolean = false;
 
 /**
  * Determinate if the function is empty.
- * @param text Text to check.
+ * @param text Text to check
  */
 function textIsEmpty(text: string): boolean {
 	return (
@@ -27,8 +27,8 @@ function textIsEmpty(text: string): boolean {
 
 /**
  * Numbers the line.
- * @param text Text to check.
- * @param countBlank Text to check.
+ * @param text Text to check
+ * @param countBlank Text to check
  */
 export function number(text: string, countBlank: boolean): string {
 	// Split the text into lines

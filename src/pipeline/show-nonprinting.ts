@@ -1,7 +1,6 @@
 /*
 	File: src/pipeline/show-nonprinting.ts
 	cpuabuse.com
-	
 */
 
 /**
