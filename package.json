@@ -13,6 +13,7 @@
 	"engines": {
 		"node": ">=10"
 	},
+	"types": "src/cross-cat.d.ts",
 	"scripts": {
 		"build": "tsc",
 		"build:docs": "typedoc",
