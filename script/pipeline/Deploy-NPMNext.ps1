@@ -20,9 +20,11 @@
 # Set patch level
 if ($env:COMMIT_MESSAGE.Contains("[version minor]")) {
 	$PatchLevel = "minor"
-} elseif ($env:COMMIT_MESSAGE.Contains("[version major]")) {
+}
+elseif ($env:COMMIT_MESSAGE.Contains("[version major]")) {
 	$PatchLevel = "major"
-} elseif (-not $env:COMMIT_MESSAGE.Contains("[version patch]")) {
+}
+elseif (-not $env:COMMIT_MESSAGE.Contains("[version patch]")) {
 	$Patch = $False
 }
 
@@ -35,7 +37,7 @@ if ($Patch) {
 	git checkout $Branch
 
 	# Patch, commit and tag
-	npm $PatchLevel $(if ($env:COMMIT_MESSAGE.Contains("[version patch]"))) --no-git-tag-version; if (-not $?) { throw }
+	npm version patch --no-git-tag-version; if (-not $?) { throw }
 	$Version = (Get-Content -Path $PackageFilePath | ConvertFrom-Json).version
 	$Tag = "v$Version"
 	$Message = "Release: Next $Tag"
@@ -61,5 +63,6 @@ if ($Patch) {
 	# Remove config with token, just in case
 	git reset HEAD --hard; if (-not $?) { throw }
 }
+
 # Stop-Pipeline
 & $Paths.StopPipeline
