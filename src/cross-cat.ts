@@ -178,6 +178,9 @@ Examples:
 	} as ParsedArgs;
 }
 
+/**
+ * Main function.
+ */
 async function main(): Promise<void> {
 	// Stdin read or not
 	let stdinRead: boolean = false;
