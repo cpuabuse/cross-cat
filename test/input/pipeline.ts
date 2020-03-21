@@ -22,6 +22,7 @@ Beans`;
 export const animals: string = `Dog
 
 Cat
+
 Snake`;
 
 // Literal empty string
