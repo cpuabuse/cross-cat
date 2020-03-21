@@ -7,40 +7,60 @@
  * Provide the input data.
  */
 
-// Carriage return
+/**
+ * Carriage return.
+ */
 export const carriageReturnCharacter: string = "\r";
 
-// Delete
+/**
+ * Delete.
+ */
 export const del: string = "^?";
 
-// Number
+/**
+ * List of food.
+ */
 export const food: string = `Beef
 Sugar cane
 Beans`;
 
-// Number-nonblank
+/**
+ * List of animals with empty lines for number-nonblank test.
+ */
 export const animals: string = `Dog
 
 Cat
 
 Snake`;
 
-// Literal empty string
+/**
+ * Literal empty string.
+ */
 export const emptyString: string = "";
 
-// Characters between 160 and 255; but tested manually from 170 to 172
+/**
+ * Characters between 160 and 255; but tested manually from 170 to 172.
+ */
 export const extendedHigher: string = "ª«¬";
 
-// All of the letters, lower case and upper case
+/**
+ * All of the letters, lower case and upper case.
+ */
 export const letters: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// Line feed, new line
+/**
+ * Line feed character.
+ */
 export const lineFeedCharacter: string = "\n";
 
-// Numbers
+/**
+ * Numbers.
+ */
 export const numbers: string = "0123456789";
 
-// SqueezeBlank
+/**
+ * Insects separeted by several blank lines for squeeze-blank test.
+ */
 export const insects: string = `Grasshoper
 
 
@@ -61,19 +81,29 @@ Apple	250	Red`;
 export const fruitList: string = `Apple
 Orange`;
 
-// Literal space
+/**
+ * Literal space.
+ */
 export const space: string = " ";
 
-// Special characters from 33 to 126
+/**
+ * Special characters from 33 to 126.
+ */
 export const specialCharacters: string = "!\"#$%&'()*+,-./:;>=<?@[\\]^_`{|}~";
 
-// Tab
+/**
+ * Tab.
+ */
 export const tabCharacter: string = "\t";
 
-// Above 255
+/**
+ * It is a string that means `Hello, World!` in Japanese.
+ */
 export const unicodeCharacter: string = "ハローワールド";
 
-// Extended characters from 128 to 160
+/**
+ * Extended characters from 128 to 130.
+ */
 export function getExtendedLower(): string {
 	// An array of characters to return as a string
 	let array: string[] = new Array();
