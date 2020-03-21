@@ -4,7 +4,7 @@
 [![Coverage](https://img.shields.io/codacy/coverage/05e07171ea0748d8b530a59ff4264492?logo=codacy)](https://app.codacy.com/gh/cpuabuse/cross-cat)
 [![Release date](https://img.shields.io/github/release-date/cpuabuse/cross-cat?logo=github)](https://github.com/cpuabuse/cross-cat/releases)
 [![Docs](https://img.shields.io/badge/docs-gh--pages-informationa?logo=github)](https://cpuabuse.github.io/cross-cat)
-[![License](https://img.shields.io/github/license/cpuabuse/cross-cat?logo=github)](https://opensource.org/licenses/ISC)
+[![License](https://img.shields.io/github/license/cpuabuse/cross-cat?logo=github)](https://choosealicense.com/licenses/isc/)
 [![Testing](https://img.shields.io/badge/testing-mocha-informational?logo=mocha)](https://mochajs.org)
 [![Node](https://img.shields.io/node/v/cross-cat?logo=node.js)](https://www.npmjs.com/package/cross-cat)
 [![NPM](https://img.shields.io/npm/v/cross-cat?logo=npm)](https://www.npmjs.com/package/cross-cat)
@@ -22,7 +22,6 @@ Cross-platform cat command.
 
 A JavaScript package, behaving exactly as Linux [cat](https://www.gnu.org/software/coreutils/cat) command, supporting all the options such as line numbering.
 Written in TypeScript natively.
-
 
 ## Prerequisites
 
@@ -51,5 +50,37 @@ cat my_awesome_file.txt
 Command | Explanation
 --- | ---
 `cross-cat <filename>` | For example, in case of PowerShell, ensure that this module is run instead of `cat` built-in alias to `Get-Content`
-`npx cross-cat <filename>` | To run without installation, although npm information would be displayed as well
-`cat --help` | To get all the available options
+`npx cross-cat <filename>` | To run without installation
+`cross-cat --help` | To get all the available options
+
+### Escaping spaces in `package.json` scripts
+
+```json
+"scripts": {
+	"show:awesome": "cross-cat \"/awesome folder/awesome filename\""
+}
+```
+
+### Spaces and npx
+
+Currently runs **via npx** of **locally** installed package cannot process filenames with spaces correctly due to npm behavior. Workaround:
+
+```bash
+node node_modules/cross-cat/src/cross-cat.js <filename>
+```
+
+#### Spaces support
+
+`+`: Working
+`=`: Non applicable
+`-`: Not working (workaround above)
+
+Command used | Global | Local | Not installed
+--- | --- | --- | ---|
+cat | + | = | =
+cat (from script) | + | + | =
+cross-cat | + | = | =
+cross-cat (from script) | + | + | =
+npx cross-cat | - | - | +
+npx cross-cat (from script) | - | - | +
+node cross-cat.js | + | + | =

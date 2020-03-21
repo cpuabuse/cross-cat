@@ -20,11 +20,12 @@ $PackageName is:
 ✅behaves exactly like #linux cat command
 ✅written natively in #typescript
 
-#github docs: https://cpuabuse.github.io/cross-cat
-#npm release: https://www.npmjs.com/package/cross-cat"
+changelog: https://github.com/cpuabuse/cross-cat/releases/tag/$Tag
+#npm release: https://www.npmjs.com/package/cross-cat
+https://github.com/cpuabuse/cross-cat"
 
 # Tweet
-# npx tweet --message $Message
+node node_modules/chirpchirp/build/chirpchirp/src/index.js send --message $Message
 
 # Stop-Pipeline
 & $Paths.StopPipeline
