@@ -39,6 +39,9 @@ import {
 } from "../../expected/pipeline";
 import { showNonPrinting } from "../../../src/pipeline/show-nonprinting";
 
+/**
+ * Multiple tests for show non printing.
+ */
 export function testShowNonPrinting() {
 	describe("non-printing", function() {
 		// Tab character
@@ -51,20 +54,14 @@ export function testShowNonPrinting() {
 		// Line feed character
 		describe("line feed character", function() {
 			it("should have expected value", function() {
-				strictEqual(
-					showNonPrinting(inputlineFeedCharacter),
-					expectedLineFeedCharacter
-				);
+				strictEqual(showNonPrinting(inputlineFeedCharacter), expectedLineFeedCharacter);
 			});
 		});
 
 		// Carriage return character
 		describe("carriage return character", function() {
 			it("should have expected value", function() {
-				strictEqual(
-					showNonPrinting(inputCarriageReturnCharacter),
-					expectedCarriageReturnCharacter
-				);
+				strictEqual(showNonPrinting(inputCarriageReturnCharacter), expectedCarriageReturnCharacter);
 			});
 		});
 
@@ -79,18 +76,12 @@ export function testShowNonPrinting() {
 		describe("specialCharacters", function() {
 			// String length
 			it("should have expected amount of characters", function() {
-				strictEqual(
-					inputSpecialCharacters.length,
-					expectedSpecialCharactersCount
-				);
+				strictEqual(inputSpecialCharacters.length, expectedSpecialCharactersCount);
 			});
 
 			// Value
 			it("should have expected value", function() {
-				strictEqual(
-					showNonPrinting(inputSpecialCharacters),
-					expectedSpecialCharacters
-				);
+				strictEqual(showNonPrinting(inputSpecialCharacters), expectedSpecialCharacters);
 			});
 		});
 
@@ -130,30 +121,21 @@ export function testShowNonPrinting() {
 		// Extended characters from 128 to 160
 		describe("extendedCharacters", function() {
 			it("should have expected amount of characters", function() {
-				strictEqual(
-					showNonPrinting(getInputExtendedLower()),
-					expectedExtendedCharacters
-				);
+				strictEqual(showNonPrinting(getInputExtendedLower()), expectedExtendedCharacters);
 			});
 		});
 
 		// Extended characters from 160 to 255
 		describe("othersExtendedCharacters", function() {
 			it("should have expected amount of characters", function() {
-				strictEqual(
-					showNonPrinting(inputExtendedHigher),
-					expectedExtendedHigher
-				);
+				strictEqual(showNonPrinting(inputExtendedHigher), expectedExtendedHigher);
 			});
 		});
 
 		// Unicode characters above 255
 		describe("unicode characters", function() {
 			it("should have expected values", function() {
-				strictEqual(
-					showNonPrinting(inputUnicodeCharacter),
-					expectedUnicodeCharacter
-				);
+				strictEqual(showNonPrinting(inputUnicodeCharacter), expectedUnicodeCharacter);
 			});
 		});
 	});
