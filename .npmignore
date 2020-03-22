@@ -4,8 +4,6 @@ azure-pipelines.yml
 coverage
 .eslintrc.yml
 .gitattributes
-.gitignore
-.gitpod.dockerfile
 .gitpod.yml
 *.js.map
 .nyc_output

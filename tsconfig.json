@@ -12,5 +12,6 @@
 	},
 	"typedocOptions": {
 		"out": "build/typedoc"
-	}
+	},
+	"include": ["src/**/*", "test/**/*"]
 }

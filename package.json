@@ -1,6 +1,6 @@
 {
 	"name": "cross-cat",
-	"version": "0.1.16",
+	"version": "1.0.0",
 	"description": "A cross platform cat command",
 	"main": "src/cross-cat.js",
 	"bin": {
@@ -22,7 +22,8 @@
 		"coverage:codacy": "npm run coverage:lcov && npx cross-cat coverage/lcov.info | codacy-coverage",
 		"test:js:junit": "npm run build && mocha test --reporter mocha-junit-reporter",
 		"test:js:mocha": "npm run build && mocha",
-		"test:ts:mocha": "npm run build && mocha --require ts-node/register test/test.ts"
+		"test:ts:mocha": "npm run build && mocha --require ts-node/register test/test.ts",
+		"abc": "npx chirpchirp send --message \"abc abc\n abc abc\""
 	},
 	"repository": "github:cpuabuse/cross-cat",
 	"keywords": [
@@ -46,6 +47,7 @@
 		"@types/node": "^12.12.27",
 		"@typescript-eslint/eslint-plugin": "^2.20.0",
 		"@typescript-eslint/parser": "^2.20.0",
+		"chirpchirp": "0.0.6",
 		"codacy-coverage": "^3.4.0",
 		"eslint": "^6.8.0",
 		"eslint-config-airbnb-base": "^14.0.0",
