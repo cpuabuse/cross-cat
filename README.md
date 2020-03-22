@@ -82,7 +82,7 @@ node node_modules/cross-cat/src/cross-cat.js <filename>
 : Not working (workaround above)
 
 Command used | Global | Local | Not installed
---- | --- | --- | ---|
+--- | --- | --- | ---
 cat | + | = | =
 cat (from script) | + | + | =
 cross-cat | + | = | =
