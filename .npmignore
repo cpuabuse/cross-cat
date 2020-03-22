@@ -1,21 +1,6 @@
 # Ignore
-azure-pipelines.yml
-/build
-coverage
-.eslintrc.yml
-.gitattributes
-.gitpod.yml
-*.js.map
-.nyc_output
-.nycrc.yml
-package-lock.json
-.prettierrc.yml
-script
-*.ts
-test
-test-results.xml
-tsconfig.json
-.vscode
+*
 
 # Unignore
-!*d.ts
+!/src/*
+!/src/**/*
