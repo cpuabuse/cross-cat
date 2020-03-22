@@ -46,7 +46,7 @@
 		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.12.27",
 		"@typescript-eslint/eslint-plugin": "^2.24.0",
-		"@typescript-eslint/parser": "^2.20.0",
+		"@typescript-eslint/parser": "^2.24.0",
 		"chirpchirp": "0.0.6",
 		"codacy-coverage": "^3.4.0",
 		"eslint": "^6.8.0",
