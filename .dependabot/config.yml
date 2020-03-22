@@ -2,10 +2,8 @@ version: 1
 update_configs:
   - package_manager: javascript
     directory: /
-    update_schedule: monthly
+    update_schedule: live
     target_branch: dev
-    default_reviewers:
-      - cpuabuse/admin
     automerged_updates:
       - match:
           dependency_type: "development"
