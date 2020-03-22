@@ -44,7 +44,7 @@
 	"devDependencies": {
 		"@istanbuljs/nyc-config-typescript": "^1.0.1",
 		"@types/mocha": "^5.2.7",
-		"@types/node": "^12.12.27",
+		"@types/node": "^13.9.3",
 		"@typescript-eslint/eslint-plugin": "^2.20.0",
 		"@typescript-eslint/parser": "^2.20.0",
 		"chirpchirp": "0.0.6",
