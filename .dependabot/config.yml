@@ -1,0 +1,12 @@
+# This is an example with only required properties:
+version: 1
+update_configs:
+  - package_manager: javascript
+    directory: /
+    update_schedule: monthly
+    target_branch: dev
+    default_reviewers:
+      - cpuabuse/admin
+    version_requirement_updates: increase_versions
+    commit_message:
+      prefix: "Change"
