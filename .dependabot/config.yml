@@ -1,4 +1,3 @@
-# This is an example with only required properties:
 version: 1
 update_configs:
   - package_manager: javascript
@@ -7,6 +6,9 @@ update_configs:
     target_branch: dev
     default_reviewers:
       - cpuabuse/admin
+    automerged_updates:
+      - match:
+          dependency_type: "development"
     version_requirement_updates: increase_versions
     commit_message:
       prefix: "Change"
