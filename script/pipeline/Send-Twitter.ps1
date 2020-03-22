@@ -25,7 +25,7 @@ changelog: https://github.com/cpuabuse/cross-cat/releases/tag/$Tag
 https://github.com/cpuabuse/cross-cat"
 
 # Tweet
-node node_modules/chirpchirp/build/chirpchirp/src/index.js send --message $Message
+node node_modules/chirpchirp/build/release/index.js send --message $Message
 
 # Stop-Pipeline
 & $Paths.StopPipeline

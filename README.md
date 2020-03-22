@@ -71,9 +71,14 @@ node node_modules/cross-cat/src/cross-cat.js <filename>
 
 #### Spaces support
 
-`+`: Working
-`=`: Non applicable
-`-`: Not working (workaround above)
+`+`
+: Working
+
+`=`
+: Non applicable
+
+`-`
+: Not working (workaround above)
 
 Command used | Global | Local | Not installed
 --- | --- | --- | ---|
