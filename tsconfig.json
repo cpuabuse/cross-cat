@@ -11,7 +11,7 @@
 		"esModuleInterop": true
 	},
 	"typedocOptions": {
-		"out": "build/typedoc"
-	},
-	"include": ["src/**/*", "test/**/*"]
+		"out": "build/typedoc",
+		"exclude": ["test/**/*"]
+	}
 }
