@@ -59,7 +59,7 @@
 		"mocha-junit-reporter": "^1.23.3",
 		"nyc": "^15.0.0",
 		"prettier": "^1.19.1",
-		"release-it": "^13.1.2",
+		"release-it": "^13.5.1",
 		"rollup": "^1.31.1",
 		"ts-node": "^8.6.2",
 		"typedoc": "^0.16.11",
