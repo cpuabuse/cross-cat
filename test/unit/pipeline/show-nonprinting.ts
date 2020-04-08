@@ -1,6 +1,6 @@
 /*
-	File: test/unit/pipeline/show-nonprinting.js
-	cpuabuse.com
+	Copyright 2020 cpuabuse.com
+	Licensed under the ISC License (https://opensource.org/licenses/ISC)
 */
 
 /**
