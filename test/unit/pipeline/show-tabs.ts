@@ -16,8 +16,8 @@ import { processTabs } from "../../../src/pipeline/show-tabs";
  * Test for show tabs.
  */
 export function testShowTabs(): void {
-	describe("Fruit table TSV string", function() {
-		it("should have tabs replaced", function() {
+	describe("Fruit table TSV string", function () {
+		it("should have tabs replaced", function () {
 			strictEqual(processTabs(input), expected);
 		});
 	});

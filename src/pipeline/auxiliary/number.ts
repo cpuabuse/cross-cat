@@ -40,7 +40,7 @@ export function number(text: string, countBlank: boolean): string {
 		maxNumberOfDigits = splitText.length.toString().length;
 	} else {
 		maxNumberOfDigits = splitText
-			.filter(function(line: string) {
+			.filter(function (line: string) {
 				return line.length > 0;
 			})
 			.length.toString().length;
@@ -70,7 +70,7 @@ export function number(text: string, countBlank: boolean): string {
 
 	// If the array is empty at this point, the result of reduce will be an object where text property equals to first line
 	return splitText.reduce(
-		function(previousResult, lineText) {
+		function (previousResult, lineText) {
 			let result: {
 				text: string;
 				spaces: string;

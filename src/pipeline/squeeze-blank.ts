@@ -49,7 +49,7 @@ export function processSqueezeBlank(text: string): string {
 
 	// Iterate through the lines
 	return lines.reduce(
-		function(aggregator, currentLine) {
+		function (aggregator, currentLine) {
 			// Determine empty strings
 			let currentLineIsEmpty: boolean = stringIsEmpty(currentLine);
 
