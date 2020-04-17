@@ -7,10 +7,10 @@
  * Tests `showTabs`.
  */
 
-import { strictEqual } from "assert";
-import { fruitTable as input } from "../../input/pipeline";
 import { fruitTable as expected } from "../../expected/pipeline";
+import { fruitTable as input } from "../../input/pipeline";
 import { processTabs } from "../../../src/pipeline/show-tabs";
+import { strictEqual } from "assert";
 
 /**
  * Test for show tabs.

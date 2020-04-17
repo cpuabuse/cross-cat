@@ -6,43 +6,43 @@
 /**
  * Tests `showNonprinting`.
  */
-
-import { strictEqual } from "assert";
 import {
-	tabCharacter as inputTabCharacter,
-	lineFeedCharacter as inputlineFeedCharacter,
-	carriageReturnCharacter as inputCarriageReturnCharacter,
-	space as inputSpace,
-	specialCharacters as inputSpecialCharacters,
-	numbers as inputNumbers,
-	letters as inputLetters,
-	del as inputDel,
-	getExtendedLower as getInputExtendedLower,
-	extendedHigher as inputExtendedHigher,
-	unicodeCharacter as inputUnicodeCharacter
-} from "../../input/pipeline";
-import {
-	tabCharacter as expectedTabCharacter,
-	lineFeedCharacter as expectedLineFeedCharacter,
 	carriageReturnCharacter as expectedCarriageReturnCharacter,
-	space as expectedSpace,
-	specialCharactersCount as expectedSpecialCharactersCount,
-	specialCharacters as expectedSpecialCharacters,
-	numbers as expectedNumbers,
-	numbersCount as expectedNumbersCount,
-	letters as expectedLetters,
-	lettersCount as expectedLettersCount,
 	del as expectedDel,
 	extendedCharacters as expectedExtendedCharacters,
 	extendedHigher as expectedExtendedHigher,
+	letters as expectedLetters,
+	lettersCount as expectedLettersCount,
+	lineFeedCharacter as expectedLineFeedCharacter,
+	numbers as expectedNumbers,
+	numbersCount as expectedNumbersCount,
+	space as expectedSpace,
+	specialCharacters as expectedSpecialCharacters,
+	specialCharactersCount as expectedSpecialCharactersCount,
+	tabCharacter as expectedTabCharacter,
 	unicodeCharacter as expectedUnicodeCharacter
 } from "../../expected/pipeline";
+import {
+	getExtendedLower as getInputExtendedLower,
+	carriageReturnCharacter as inputCarriageReturnCharacter,
+	del as inputDel,
+	extendedHigher as inputExtendedHigher,
+	letters as inputLetters,
+	numbers as inputNumbers,
+	space as inputSpace,
+	specialCharacters as inputSpecialCharacters,
+	tabCharacter as inputTabCharacter,
+	unicodeCharacter as inputUnicodeCharacter,
+	lineFeedCharacter as inputlineFeedCharacter
+} from "../../input/pipeline";
+
 import { showNonPrinting } from "../../../src/pipeline/show-nonprinting";
+import { strictEqual } from "assert";
 
 /**
  * Multiple tests for show non printing.
  */
-export function testShowNonPrinting() {
+export function testShowNonPrinting(): void {
 	describe("non-printing", function () {
 		// Tab character
 		describe("tab character", function () {

@@ -122,7 +122,7 @@ async function parseArgs(): Promise<ParsedArgs> {
 	program.description(`Concatenate FILE(s) to standard output.
 
 With no FILE, or when FILE is -, read standard input.`);
-	program.on("--help", function() {
+	program.on("--help", function () {
 		// eslint-disable-next-line no-console
 		console.log(`
 Examples:
@@ -131,9 +131,9 @@ Examples:
 	});
 
 	// Create new promise for filenames; Used promise for fucntion structure, even though no async code run
-	let filenames: Promise<Array<string>> = new Promise(function(resolve) {
+	let filenames: Promise<Array<string>> = new Promise(function (resolve) {
 		// Get files; The method action is synchronous.
-		program.arguments("[filenames...]").action(function(argFiles) {
+		program.arguments("[filenames...]").action(function (argFiles) {
 			// Resolve the promise
 			resolve(argFiles.length > 0 ? argFiles : [stdinFilename]);
 		});
@@ -196,14 +196,14 @@ async function main(): Promise<void> {
 
 	// File reading loop
 	try {
-		parsedArgs.filenames.forEach(function(filename) {
+		parsedArgs.filenames.forEach(function (filename) {
 			promises.push(
-				new Promise(function(resolve, reject) {
+				new Promise(function (resolve, reject) {
 					if (filename === stdinFilename) {
 						resolve(stdinRead ? emptyString : parsedArgs.stdin);
 						stdinRead = true;
 					} else {
-						readFile(filename, function(err, data) {
+						readFile(filename, function (err, data) {
 							if (err) {
 								reject(filename);
 							} else {

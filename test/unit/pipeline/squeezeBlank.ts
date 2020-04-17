@@ -16,8 +16,8 @@ import { strictEqual } from "assert";
  * Test for repeated empty lines.
  */
 export function testsqueezeBlank(): void {
-	describe("squeeze blank", function() {
-		it("should squeeze repeated empty output lines", function() {
+	describe("squeeze blank", function () {
+		it("should squeeze repeated empty output lines", function () {
 			strictEqual(processSqueezeBlank(input), expected);
 		});
 	});

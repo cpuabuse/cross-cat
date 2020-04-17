@@ -7,10 +7,10 @@
  * Tests `show-ends`.
  */
 
-import { strictEqual } from "assert";
-import { fruitList as inputFruitList } from "../../input/pipeline";
 import { fruitList as expectedFruitList } from "../../expected/pipeline";
+import { fruitList as inputFruitList } from "../../input/pipeline";
 import { processEnds } from "../../../src/pipeline/show-ends";
+import { strictEqual } from "assert";
 
 /**
  * Tests for show ends.
