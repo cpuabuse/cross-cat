@@ -7,17 +7,17 @@
  * Tests `numberNonBlank`.
  */
 
-import { strictEqual } from "assert";
-import { processNumberNonBlank } from "../../../src/pipeline/number-nonblank";
-import { animals as input } from "../../input/pipeline";
 import { animals as expected } from "../../expected/pipeline";
+import { animals as input } from "../../input/pipeline";
+import { processNumberNonBlank } from "../../../src/pipeline/number-nonblank";
+import { strictEqual } from "assert";
 
 /**
  * Test for multiple lines.
  */
 export function testNumberNonBlank(): void {
-	describe("number-nonblank", function() {
-		it("Number nonempty output lines, overrides -n", function() {
+	describe("number-nonblank", function () {
+		it("Number nonempty output lines, overrides -n", function () {
 			strictEqual(processNumberNonBlank(input), expected);
 		});
 	});

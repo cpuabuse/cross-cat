@@ -48,11 +48,11 @@ cat my_awesome_file.txt
 
 ## Advanced usage
 
-Command | Explanation
---- | ---
-`cross-cat <filename>` | For example, in case of PowerShell, ensure that this module is run instead of `cat` built-in alias to `Get-Content`
-`npx cross-cat <filename>` | To run without installation
-`cross-cat --help` | To get all the available options
+| Command                    | Explanation                                                                                                         |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `cross-cat <filename>`     | For example, in case of PowerShell, ensure that this module is run instead of `cat` built-in alias to `Get-Content` |
+| `npx cross-cat <filename>` | To run without installation                                                                                         |
+| `cross-cat --help`         | To get all the available options                                                                                    |
 
 ### Escaping spaces in `package.json` scripts
 
@@ -81,12 +81,12 @@ node node_modules/cross-cat/src/cross-cat.js <filename>
 `-`
 : Not working (workaround above)
 
-Command used | Global | Local | Not installed
---- | --- | --- | ---
-cat | + | = | =
-cat (from script) | + | + | =
-cross-cat | + | = | =
-cross-cat (from script) | + | + | =
-npx cross-cat | - | - | +
-npx cross-cat (from script) | - | - | +
-node cross-cat.js | + | + | =
+| Command used                | Global | Local | Not installed |
+| --------------------------- | ------ | ----- | ------------- |
+| cat                         | +      | =     | =             |
+| cat (from script)           | +      | +     | =             |
+| cross-cat                   | +      | =     | =             |
+| cross-cat (from script)     | +      | +     | =             |
+| npx cross-cat               | -      | -     | +             |
+| npx cross-cat (from script) | -      | -     | +             |
+| node cross-cat.js           | +      | +     | =             |

@@ -70,7 +70,7 @@ let treatCarriageReturnAsCharater: boolean = false;
  */
 export function showNonPrinting(text: string): string {
 	let resultArray: Array<string> = text.split(emptyString);
-	resultArray.forEach(function(character, index, array) {
+	resultArray.forEach(function (character, index, array) {
 		// Converts string to ASCII code
 		let characterCode: number = character.charCodeAt(0);
 		if (characterCode >= printableChar) {

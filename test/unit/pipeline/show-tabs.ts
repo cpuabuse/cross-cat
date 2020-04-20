@@ -7,17 +7,17 @@
  * Tests `showTabs`.
  */
 
-import { strictEqual } from "assert";
-import { fruitTable as input } from "../../input/pipeline";
 import { fruitTable as expected } from "../../expected/pipeline";
+import { fruitTable as input } from "../../input/pipeline";
 import { processTabs } from "../../../src/pipeline/show-tabs";
+import { strictEqual } from "assert";
 
 /**
  * Test for show tabs.
  */
 export function testShowTabs(): void {
-	describe("Fruit table TSV string", function() {
-		it("should have tabs replaced", function() {
+	describe("Fruit table TSV string", function () {
+		it("should have tabs replaced", function () {
 			strictEqual(processTabs(input), expected);
 		});
 	});
