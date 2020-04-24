@@ -12,7 +12,7 @@ import {
 	fruitsShowEnds as expectedFruitShowEnds,
 	fruits as expectedFruits,
 	fruitsNumber as expectedFruitsNumber,
-	vegetablesNumberNonBlank as expectedVegetablesNumberNonBlank
+	vegetablesNumberNonblank as expectedVegetablesNumberNonblank
 } from "../expected/index";
 import { ok, strictEqual } from "assert";
 
@@ -77,7 +77,7 @@ export function sytemTest(): void {
 		describe("Testing with vegetables.txt", function () {
 			it("should return file contents with non-blank line numbers only", function (done) {
 				catSpawn(["test/data/vegetables.txt", "-b"]).then(function (text) {
-					strictEqual(text, expectedVegetablesNumberNonBlank);
+					strictEqual(text, expectedVegetablesNumberNonblank);
 					done();
 				});
 			});

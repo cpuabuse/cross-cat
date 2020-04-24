@@ -4,21 +4,21 @@
 */
 
 /**
- * Tests `numberNonBlank`.
+ * Tests `numberNonblank`.
  */
 
 import { animals as expected } from "../../expected/pipeline";
 import { animals as input } from "../../input/pipeline";
-import { processNumberNonBlank } from "../../../src/pipeline/number-nonblank";
+import { processNumberNonblank } from "../../../src/pipeline/number-nonblank";
 import { strictEqual } from "assert";
 
 /**
  * Test for multiple lines.
  */
-export function testNumberNonBlank(): void {
+export function testNumberNonblank(): void {
 	describe("number-nonblank", function () {
 		it("Number nonempty output lines, overrides -n", function () {
-			strictEqual(processNumberNonBlank(input), expected);
+			strictEqual(processNumberNonblank(input), expected);
 		});
 	});
 }

@@ -8,7 +8,7 @@
  */
 
 import { testNumber } from "./pipeline/number";
-import { testNumberNonBlank } from "./pipeline/number-nonblank";
+import { testNumberNonblank } from "./pipeline/number-nonblank";
 import { testShowEnds } from "./pipeline/show-ends";
 import { testShowNonPrinting } from "./pipeline/show-nonprinting";
 import { testShowTabs } from "./pipeline/show-tabs";
@@ -21,8 +21,8 @@ export function unitTest(): void {
 	// number
 	testNumber();
 
-	// numberNonBlank
-	testNumberNonBlank();
+	// numberNonblank
+	testNumberNonblank();
 
 	// showNonpriting
 	testShowNonPrinting();
