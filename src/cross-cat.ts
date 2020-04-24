@@ -24,7 +24,7 @@ import { Command } from "commander";
 import getStdin from "get-stdin";
 import { processEnds } from "./pipeline/show-ends";
 import { processNumber } from "./pipeline/number";
-import { processNumberNonBlank } from "./pipeline/number-nonblank";
+import { processNumberNonblank } from "./pipeline/number-nonblank";
 import { processSqueezeBlank } from "./pipeline/squeeze-blank";
 import { processTabs } from "./pipeline/show-tabs";
 import { readFile } from "fs";
@@ -74,7 +74,7 @@ function cat(text: string, flags: Flags): void {
 
 	// Processing to show line numbers
 	if (flags.numberNonblankFlag) {
-		text = processNumberNonBlank(text); // eslint-disable-line no-param-reassign
+		text = processNumberNonblank(text); // eslint-disable-line no-param-reassign
 
 		// Processing to show line endings
 		if (flags.showEndsFlag) {

@@ -40,7 +40,7 @@ Grape fruit$`;
 /**
  * Numbered list of vegetables with blank lines for the system test.
  */
-export const vegetablesNumberNonBlank: string = `1 Carrot
+export const vegetablesNumberNonblank: string = `1 Carrot
 
 2 Pumpkin
 

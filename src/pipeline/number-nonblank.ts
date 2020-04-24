@@ -13,6 +13,6 @@ import { number } from "./auxiliary/number";
  * Number nonempty output lines, overrides -n.
  * @param text Text to process
  */
-export function processNumberNonBlank(text: string): string {
+export function processNumberNonblank(text: string): string {
 	return number(text, false);
 }
