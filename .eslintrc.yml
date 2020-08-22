@@ -36,6 +36,14 @@ settings:
 rules:
   prettier/prettier: error
 
+  # Disallow specified syntax
+  # For-of is permissible
+  no-restricted-syntax:
+    - error
+    - ForInStatement
+    - LabeledStatement
+    - WithStatement
+
   # Bans “// @ts-ignore” comments from being used
   # Sometimes functionality is necessary
   "@typescript-eslint/ban-ts-ignore": off
