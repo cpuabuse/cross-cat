@@ -9,7 +9,7 @@
 
 const emptyString: string = "";
 const space: string = " ";
-const tabulationSpace: string = " ";
+const tabulationSpace: string = "  ";
 let treatCarriageReturnAsNotEmpty: boolean = false;
 
 /**
