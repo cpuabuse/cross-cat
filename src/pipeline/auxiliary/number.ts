@@ -10,6 +10,10 @@
 const emptyString: string = "";
 const space: string = " ";
 const tabulationSpace: string = "  ";
+const minIndentation: number = 5;
+const newlineCharacter: string = "\n";
+const carriageReturnCharacter: string = "\r";
+const indentationSpace: string = " ";
 let treatCarriageReturnAsNotEmpty: boolean = false;
 
 /**
@@ -21,7 +25,7 @@ function textIsEmpty(text: string): boolean {
 		text.length === 0 ||
 		(treatCarriageReturnAsNotEmpty // Account for Windows line endings
 			? false
-			: text === "\r")
+			: text === carriageReturnCharacter)
 	);
 }
 
@@ -31,8 +35,12 @@ function textIsEmpty(text: string): boolean {
  * @param countBlank Text to check
  */
 export function number(text: string, countBlank: boolean): string {
+	if (text.length === 0) {
+		return emptyString;
+	}
+
 	// Split the text into lines
-	let splitText: Array<string> = text.split("\n");
+	let splitText: Array<string> = text.split(newlineCharacter);
 
 	// Max number of digits that the line number can occupy
 	let maxNumberOfDigits: number;
@@ -57,15 +65,16 @@ export function number(text: string, countBlank: boolean): string {
 	if (
 		firstLine.length === 0 || treatCarriageReturnAsNotEmpty // Account for Windows line endings
 			? false
-			: firstLine === "\r"
+			: firstLine === carriageReturnCharacter
 	) {
 		if (countBlank) {
-			firstLine = `${initialSpaces}1`;
+			firstLine = `${initialSpaces}1`.padStart(minIndentation, indentationSpace);
 		} else {
 			displayNumber = 0;
 		}
 	} else {
-		firstLine = `${initialSpaces}1${tabulationSpace}${firstLine}`; // Special case for empty files
+		let indentation: string = `${initialSpaces}1`.padStart(minIndentation, indentationSpace);
+		firstLine = `${indentation}${tabulationSpace}${firstLine}`; // Special case for empty files
 	}
 
 	// If the array is empty at this point, the result of reduce will be an object where text property equals to first line
@@ -98,12 +107,15 @@ export function number(text: string, countBlank: boolean): string {
 			// Return without space after the number if the line text is empty; Do not change anything if the line is empty, and we dont count blanks
 			if (textIsEmpty(lineText)) {
 				if (countBlank) {
-					result.text += `\n${result.spaces}${displayNumber.toString()}`;
+					result.text += newlineCharacter;
+					result.text += `${result.spaces}${displayNumber.toString()}`.padStart(minIndentation, indentationSpace);
 				} else {
-					result.text += "\n";
+					result.text += newlineCharacter;
 				}
 			} else {
-				result.text += `\n${result.spaces}${displayNumber.toString()}${tabulationSpace}${lineText}`;
+				result.text += newlineCharacter;
+				result.text += `${result.spaces}${displayNumber.toString()}`.padStart(minIndentation, indentationSpace);
+				result.text += `${tabulationSpace}${lineText}`;
 			}
 			return result; // It is important to return result by reference, not to create new primitives
 		},
