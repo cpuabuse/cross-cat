@@ -9,8 +9,8 @@
 
 const emptyString: string = "";
 const space: string = " ";
-const tabulationSpace: string = "  ";
-const minIndentation: number = 5;
+const tabulationSpace: string = "	";
+const minIndentation: number = 6;
 const newlineCharacter: string = "\n";
 const carriageReturnCharacter: string = "\r";
 const indentationSpace: string = " ";
