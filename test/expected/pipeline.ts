@@ -56,18 +56,18 @@ export const numbersCount: number = 10;
 /**
  * List of food with numbers for the
  */
-export const food: string = `1 Beef
-2 Sugar cane
-3 Beans`;
+export const food: string = `     1	Beef
+     2	Sugar cane
+     3	Beans`;
 
 /**
  * Numbered list of animals with blank line for the number-nonblank test.
  */
-export const animals: string = `1 Dog
+export const animals: string = `     1	Dog
 
-2 Cat
+     2	Cat
 
-3 Snake`;
+     3	Snake`;
 
 /**
  * List of insects for squeeze-blank test.
