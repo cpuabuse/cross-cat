@@ -20,12 +20,12 @@ Grape fruit`;
 /**
  * Numbered fruit list.
  */
-export const fruitsNumber: string = `1 Apple
-2 Orange
-3 Banana
-4 Blueberry
-5 Grapes
-6 Grape fruit`;
+export const fruitsNumber: string = `     1	Apple
+     2	Orange
+     3	Banana
+     4	Blueberry
+     5	Grapes
+     6	Grape fruit`;
 
 /**
  * List of fruits with dollar character on the end of each line.
@@ -40,15 +40,15 @@ Grape fruit$`;
 /**
  * Numbered list of vegetables with blank lines for the system test.
  */
-export const vegetablesNumberNonblank: string = `1 Carrot
+export const vegetablesNumberNonblank: string = `     1	Carrot
 
-2 Pumpkin
+     2	Pumpkin
 
-3 Potato
+     3	Potato
 
-4 Spinach
+     4	Spinach
 
-5 Sweet potato`;
+     5	Sweet potato`;
 
 /**
  *  List of dinossaurs with height, with values separated by `^I`.
