@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "09:00"
+    timezone: Asia/Tokyo
+  pull-request-branch-name:
+    separator: "-"
+  open-pull-requests-limit: 1
+  target-branch: dev
+  reviewers:
+  - cpuabuse/admin
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: commander
+    versions:
+    - 6.2.1
+    - 7.0.0
+  commit-message:
+    prefix: Change
